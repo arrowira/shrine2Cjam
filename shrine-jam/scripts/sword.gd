@@ -24,22 +24,24 @@ func swing():
 	match attack:
 		0:
 			print("a0")
-			pivotDeg = -40
+			pivotDeg = -60
 		1:
-			pivotDeg = 40
+			pivotDeg = 60
 		2:
-			pivotDeg = -40
+			pivotDeg = 0
 	attack+=1
-	print(attack)
-	$ComboTimer.start()
+	if attack == 3:
+		r()
+	else:
+		$ComboTimer.start()
 
 
 func _on_combo_timer_timeout() -> void:
+	r()
+func r():
 	returning = true
 	$ReturnTimer.start()
 	attack = 0 
-
-
 func _on_return_timer_timeout() -> void:
 	pivotDeg = 0
 	returning = false

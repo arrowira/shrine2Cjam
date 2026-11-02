@@ -9,6 +9,7 @@ var dashDir = Vector2(0,0)
 
 func _physics_process(delta: float) -> void:
 	input = Input.get_vector("left", "right", "up", "down")
+	
 	if isDashing:
 		velocity += dashDir*dashSpeed
 		velocity *= 0.8
@@ -16,10 +17,14 @@ func _physics_process(delta: float) -> void:
 		velocity += input * speed
 		velocity *= 0.8
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and $SwordPivot.returning==false:
+		if $SwordPivot.attack == 2:
+			dash((get_global_mouse_position()-global_position).normalized(), 10, 5)
 		$SwordPivot.swing()
+		
 	if Input.is_action_just_pressed("dash") and isDashing == false:
 		dash(input,20,5)
+		
 	move_and_slide()
 
 func dash(dir: Vector2, distance: float, dSpeed: float):

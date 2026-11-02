@@ -6,7 +6,7 @@ func _ready() -> void:
 
 var playerSpeed = 0
 var maxNaturalSpeed = 400.0
-@onready var effectStrength = 0.05
+@onready var effectStrength = 0.02
 
 func _process(delta: float) -> void:
 	playerSpeed = get_parent().velocity.length()

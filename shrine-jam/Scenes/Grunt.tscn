@@ -20,11 +20,13 @@ scale = Vector2(1.2558596, 0.3203125)
 texture = ExtResource("2_lfdme")
 
 [node name="Collider" type="Area2D" parent="." unique_id=1055274215]
+visible = false
 
 [node name="Box" type="CollisionShape2D" parent="Collider" unique_id=138379618]
 position = Vector2(-4.5, 0.5)
 shape = SubResource("RectangleShape2D_jjj3t")
 
 [node name="CCollider" type="CollisionShape2D" parent="." unique_id=361230111]
+visible = false
 position = Vector2(-4.5, 0.5)
 shape = SubResource("RectangleShape2D_jjj3t")

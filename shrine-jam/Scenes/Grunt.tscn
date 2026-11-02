@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dplqg1l5w2uk8"]
+
+[ext_resource type="Script" uid="uid://de0avim7strj3" path="res://Scripts/EnemyBehaviour.gd" id="1_jpaow"]
+[ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_lfdme"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]
+size = Vector2(33, 129)
+
+[node name="Grunt" type="CharacterBody2D" unique_id=952265716]
+script = ExtResource("1_jpaow")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1981226892]
+position = Vector2(-5, 0)
+scale = Vector2(0.24999999, 1)
+texture = ExtResource("2_lfdme")
+
+[node name="Pointer" type="Sprite2D" parent="Sprite" unique_id=155627340]
+position = Vector2(56.000008, -0.99999905)
+scale = Vector2(1.2558596, 0.3203125)
+texture = ExtResource("2_lfdme")
+
+[node name="Collider" type="Area2D" parent="." unique_id=1055274215]
+
+[node name="Box" type="CollisionShape2D" parent="Collider" unique_id=138379618]
+position = Vector2(-4.5, 0.5)
+shape = SubResource("RectangleShape2D_jjj3t")
+
+[node name="CCollider" type="CollisionShape2D" parent="." unique_id=361230111]
+position = Vector2(-4.5, 0.5)
+shape = SubResource("RectangleShape2D_jjj3t")

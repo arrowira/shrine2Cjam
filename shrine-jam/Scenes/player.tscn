@@ -16,3 +16,5 @@ shape = SubResource("RectangleShape2D_k3uy8")
 [node name="Icon" type="Sprite2D" parent="." unique_id=726086064]
 position = Vector2(6, -4)
 texture = ExtResource("2_6t5aa")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=16901069]

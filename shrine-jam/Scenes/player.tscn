@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://scripts/CameraBehaviour.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://scripts/sword.gd" id="4_vgqql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
 size = Vector2(124, 120)
@@ -15,9 +16,31 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_k3uy8")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=726086064]
-position = Vector2(6, -4)
+position = Vector2(1, -6)
 texture = ExtResource("2_6t5aa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=16901069]
 position_smoothing_enabled = true
 script = ExtResource("3_6t5aa")
+
+[node name="SwordPivot" type="Node2D" parent="." unique_id=1820556017]
+script = ExtResource("4_vgqql")
+
+[node name="SwingPivot" type="Node2D" parent="SwordPivot" unique_id=1317828890]
+position = Vector2(74, 0)
+
+[node name="Icon" type="Sprite2D" parent="SwordPivot/SwingPivot" unique_id=799331290]
+position = Vector2(62, -3.000002)
+scale = Vector2(1, 0.15625)
+texture = ExtResource("2_6t5aa")
+
+[node name="ComboTimer" type="Timer" parent="SwordPivot" unique_id=272139380]
+wait_time = 0.5
+one_shot = true
+
+[node name="ReturnTimer" type="Timer" parent="SwordPivot" unique_id=1592371266]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="SwordPivot/ComboTimer" to="SwordPivot" method="_on_combo_timer_timeout"]
+[connection signal="timeout" from="SwordPivot/ReturnTimer" to="SwordPivot" method="_on_return_timer_timeout"]

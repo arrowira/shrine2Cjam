@@ -42,5 +42,9 @@ one_shot = true
 wait_time = 0.3
 one_shot = true
 
+[node name="DashTimer" type="Timer" parent="." unique_id=104270541]
+one_shot = true
+
 [connection signal="timeout" from="SwordPivot/ComboTimer" to="SwordPivot" method="_on_combo_timer_timeout"]
 [connection signal="timeout" from="SwordPivot/ReturnTimer" to="SwordPivot" method="_on_return_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

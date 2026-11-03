@@ -6,7 +6,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 var playerPos = Vector2(0,0)
+var playerSpeed = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	playerSpeed = $Player.velocity.length()/400
 	playerPos = $Player.global_position

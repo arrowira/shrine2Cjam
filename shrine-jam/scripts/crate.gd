@@ -10,5 +10,5 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "SwordHurtBox":
 		if area.get_parent().get_parent().isSwinging:
-			velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500
+			velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2+get_tree().current_scene.playerSpeed)
 			print('hit')

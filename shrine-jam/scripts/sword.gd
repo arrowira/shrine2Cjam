@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
 var pivotDeg = 0
+var defaultDeg = 50
 var returning = false
 var isSwinging = false
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 	
 	if returning:
 		var returnMod = ($ReturnTimer.time_left/$ReturnTimer.wait_time)
-		$SwingPivot.rotation_degrees = weaponRotDynamics.update(pivotDeg*returnMod)
+		$SwingPivot.rotation_degrees = weaponRotDynamics.update((pivotDeg-defaultDeg)*returnMod+defaultDeg)
 		if $SwingPivot.position.y != 0:
 			$SwingPivot.position.y = -80*returnMod
 	else:
@@ -43,11 +44,11 @@ func swing():
 			pivotDeg = 60
 		2:
 			pivotDeg = 0
-	attack+=1
-	if attack == 3:
-		r()
-	else:
-		$ComboTimer.start()
+	
+	if attack != 2:
+		attack+=1
+	
+	$ComboTimer.start()
 
 
 func _on_combo_timer_timeout() -> void:
@@ -57,7 +58,7 @@ func r():
 	$ReturnTimer.start()
 	attack = 0 
 func _on_return_timer_timeout() -> void:
-	pivotDeg = 0
+	pivotDeg = defaultDeg
 	$SwingPivot.position.y = 0
 	returning = false
 

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d0v0l1p4dt5s4" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://scripts/GameManager.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://c4ftawiscrqxd" path="res://Scenes/Crate.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
 
 [node name="Main" type="Node2D" unique_id=1040881665]
 script = ExtResource("1_jjvhh")
@@ -16,5 +16,5 @@ position = Vector2(383, 212.5)
 scale = Vector2(1.328125, 0.101562515)
 texture = ExtResource("2_bo1nx")
 
-[node name="crate" parent="." unique_id=962199919 instance=ExtResource("3_8gbba")]
-position = Vector2(396, 103)
+[node name="Sorcerer" parent="." unique_id=1551394208 instance=ExtResource("4_jjvhh")]
+position = Vector2(469, 67)

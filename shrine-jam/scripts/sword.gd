@@ -19,6 +19,12 @@ func _process(delta: float) -> void:
 		$SwingPivot.rotation_degrees = weaponRotDynamics.update(pivotDeg)
 
 var attack = 0
+
+func block():
+	weaponRotDynamics = Dynamics.create_dynamics(8.0, 0.3, 2.0)
+	pivotDeg = 90
+	$BlockTimer.start()
+	$ParryTimer.start()
 func swing():
 	weaponRotDynamics = Dynamics.create_dynamics(8.0, 0.3, 2.0)
 	match attack:
@@ -45,3 +51,7 @@ func r():
 func _on_return_timer_timeout() -> void:
 	pivotDeg = 0
 	returning = false
+
+
+func _on_block_timer_timeout() -> void:
+	r()

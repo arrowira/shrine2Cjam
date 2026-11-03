@@ -21,7 +21,9 @@ func _physics_process(delta: float) -> void:
 		if $SwordPivot.attack == 2:
 			dash((get_global_mouse_position()-global_position).normalized(), 10, 5)
 		$SwordPivot.swing()
-		
+	
+	if Input.is_action_just_pressed("block") and $SwordPivot.returning==false:
+		$SwordPivot.block()
 	if Input.is_action_just_pressed("dash") and isDashing == false:
 		dash(input,20,5)
 		

@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 		var returnMod = ($ReturnTimer.time_left/$ReturnTimer.wait_time)
 		print(returnMod)
 		$SwingPivot.rotation_degrees = weaponRotDynamics.update(pivotDeg*returnMod)
+		if $SwingPivot.position.y != 0:
+			$SwingPivot.position.y = -80*returnMod
 	else:
 		$SwingPivot.rotation_degrees = weaponRotDynamics.update(pivotDeg)
 
@@ -23,6 +25,7 @@ var attack = 0
 func block():
 	weaponRotDynamics = Dynamics.create_dynamics(8.0, 0.3, 2.0)
 	pivotDeg = 90
+	$SwingPivot.position.y = -80
 	$BlockTimer.start()
 	$ParryTimer.start()
 func swing():

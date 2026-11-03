@@ -10,6 +10,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if isSwinging:
+		$SwingPivot/SwordHurtBox.visible = true
+	else:
+		$SwingPivot/SwordHurtBox.visible = false
 	look_at(get_global_mouse_position())
 	
 	if returning:

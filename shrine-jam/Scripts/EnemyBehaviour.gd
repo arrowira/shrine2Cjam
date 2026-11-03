@@ -22,7 +22,6 @@ func _ready():
 
 func _physics_process(float) -> void:
 	if(global_position.distance_to(player.global_position) < aggroDistance && angry == false):
-		print("hellO")
 		wandering = false
 		angry = true
 	else:

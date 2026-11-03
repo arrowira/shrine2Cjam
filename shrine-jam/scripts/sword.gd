@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 	
 	if returning:
 		var returnMod = ($ReturnTimer.time_left/$ReturnTimer.wait_time)
-		print(returnMod)
 		$SwingPivot.rotation_degrees = weaponRotDynamics.update(pivotDeg*returnMod)
 		if $SwingPivot.position.y != 0:
 			$SwingPivot.position.y = -80*returnMod
@@ -32,7 +31,6 @@ func swing():
 	weaponRotDynamics = Dynamics.create_dynamics(8.0, 0.3, 2.0)
 	match attack:
 		0:
-			print("a0")
 			pivotDeg = -60
 		1:
 			pivotDeg = 60
@@ -53,8 +51,16 @@ func r():
 	attack = 0 
 func _on_return_timer_timeout() -> void:
 	pivotDeg = 0
+	$SwingPivot.position.y = 0
 	returning = false
 
 
 func _on_block_timer_timeout() -> void:
 	r()
+
+
+func _on_sword_hurt_box_area_entered(area: Area2D) -> void:
+	if area.get_node("Hitable") != null:
+		var h = $ComboTimer.wait_time-$ComboTimer.time_left
+		if h<0.2:
+			print("hit")

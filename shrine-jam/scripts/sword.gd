@@ -3,6 +3,7 @@ extends Node2D
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
 var pivotDeg = 0
 var returning = false
+var isSwinging = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,6 +18,8 @@ func _process(delta: float) -> void:
 		if $SwingPivot.position.y != 0:
 			$SwingPivot.position.y = -80*returnMod
 	else:
+		var h = $ComboTimer.wait_time-$ComboTimer.time_left
+		isSwinging = h<0.2
 		$SwingPivot.rotation_degrees = weaponRotDynamics.update(pivotDeg)
 
 var attack = 0
@@ -57,10 +60,3 @@ func _on_return_timer_timeout() -> void:
 
 func _on_block_timer_timeout() -> void:
 	r()
-
-
-func _on_sword_hurt_box_area_entered(area: Area2D) -> void:
-	if area.get_node("Hitable") != null:
-		var h = $ComboTimer.wait_time-$ComboTimer.time_left
-		if h<0.2:
-			print("hit")

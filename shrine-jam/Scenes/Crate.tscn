@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c4ftawiscrqxd"]
+
+[ext_resource type="Script" uid="uid://fwadwtejrrie" path="res://scripts/crate.gd" id="1_7msr7"]
+[ext_resource type="Texture2D" uid="uid://bcrmqo8vjkb16" path="res://Sprites/rubberduck.png" id="1_qgfyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
+size = Vector2(85, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30ejj"]
+
+[node name="crate" type="CharacterBody2D" unique_id=321113436]
+script = ExtResource("1_7msr7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1091124357]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=841952730]
+position = Vector2(-4.5, 3)
+shape = SubResource("RectangleShape2D_k3uy8")
+
+[node name="Hitable" type="Node" parent="Area2D" unique_id=910000030]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1169161425]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_qgfyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088153201]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_30ejj")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

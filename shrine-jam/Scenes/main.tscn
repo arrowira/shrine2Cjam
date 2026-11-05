@@ -32,6 +32,13 @@ position = Vector2(-4, 25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752143104]
 
+[node name="HeartContainer" type="Control" parent="CanvasLayer" unique_id=788841365]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_6bp64")
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1829487053]
 material = SubResource("ShaderMaterial_kry3j")
 anchors_preset = 15
@@ -39,10 +46,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HeartContainer" type="Control" parent="CanvasLayer" unique_id=788841365]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("7_6bp64")

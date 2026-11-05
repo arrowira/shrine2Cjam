@@ -49,4 +49,5 @@ func _on_player_hit_box_area_entered(area: Area2D) -> void:
 			area.get_parent().speed *= 3
 			area.get_parent().rotation = atan2(get_global_mouse_position().y-global_position.y,get_global_mouse_position().x-global_position.x)
 		else:
+			get_parent().takeDamage()
 			area.get_parent().queue_free()

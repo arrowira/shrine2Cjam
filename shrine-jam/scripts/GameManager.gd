@@ -13,3 +13,6 @@ var playerSpeed = 0
 func _process(delta: float) -> void:
 	playerSpeed = $Player.velocity.length()/400
 	playerPos = $Player.global_position
+
+func takeDamage():
+	$CanvasLayer/HeartContainer.takeDamage()

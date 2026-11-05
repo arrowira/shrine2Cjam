@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://qi6rs36koad5"]
 
-[ext_resource type="Script" uid="uid://c4opucolbt2lg" path="res://scripts/Sorcerer.gd" id="1_wfckg"]
-[ext_resource type="Texture2D" uid="uid://bcrmqo8vjkb16" path="res://Sprites/rubberduck.png" id="2_5owyf"]
+[ext_resource type="Script" uid="uid://c4opucolbt2lg" path="res://Scripts/Sorcerer.gd" id="1_wfckg"]
+[ext_resource type="Texture2D" uid="uid://dimyaqqo733pl" path="res://Sprites/rubberduck.png" id="2_5owyf"]
+[ext_resource type="Texture2D" uid="uid://8m5kjjlj8rfl" path="res://Sprites/health.png" id="3_5owyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
 
@@ -29,6 +30,15 @@ shape = SubResource("RectangleShape2D_738o6")
 [node name="BehaviourClock" type="Timer" parent="." unique_id=1871325042]
 wait_time = 0.3
 autostart = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1653286508]
+offset_left = -179.0
+offset_top = -161.0
+offset_right = 227.0
+offset_bottom = -81.0
+max_value = 4.0
+value = 4.0
+texture_progress = ExtResource("3_5owyf")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="BehaviourClock" to="." method="updateBehaviour"]

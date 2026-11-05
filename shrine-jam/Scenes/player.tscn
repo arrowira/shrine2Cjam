@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d0v0l1p4dt5s4"]
 
-[ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_6t5aa"]
-[ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://scripts/CameraBehaviour.gd" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://scripts/sword.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://Scripts/CameraBehaviour.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://Scripts/sword.gd" id="4_vgqql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
 size = Vector2(124, 120)

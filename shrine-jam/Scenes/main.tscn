@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
+[ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="6_21xkr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kry3j"]
+shader = ExtResource("6_21xkr")
+shader_parameter/darkColor = Color(0.2784677, 0.106476955, 0.13760248, 1)
+shader_parameter/lightColor = Color(0.6686414, 0.28265265, 0.23740968, 1)
 
 [node name="Main" type="Node2D" unique_id=1040881665]
 script = ExtResource("1_jjvhh")
@@ -22,3 +28,13 @@ position = Vector2(469, 67)
 
 [node name="Shrine" parent="." unique_id=2017955441 instance=ExtResource("5_kry3j")]
 position = Vector2(-4, 25)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752143104]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1829487053]
+material = SubResource("ShaderMaterial_kry3j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

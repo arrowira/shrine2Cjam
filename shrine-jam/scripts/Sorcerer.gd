@@ -4,6 +4,8 @@ var state = "idle"
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 @onready var area_2d: Area2D = $Area2D
 
+var pProjectile = preload("res://Scenes/Projectile.tscn")
+
 func _process(delta: float) -> void:
 	velocity *= 0.9
 	move_and_slide()
@@ -31,5 +33,9 @@ func updateBehaviour() -> void:
 	var roll = randf()
 	if roll < 0.1:
 		print("shoot")
+		var newProjectile = pProjectile.instantiate()
+		newProjectile.global_position = global_position
+		get_parent().add_child(newProjectile)
+		
 	elif roll < 0.3:
 		print("walk")

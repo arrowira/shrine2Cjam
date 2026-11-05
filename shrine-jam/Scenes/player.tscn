@@ -12,6 +12,14 @@ size = Vector2(124, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30ejj"]
 size = Vector2(160, 45)
 
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
+_data = {
+&"idle": SubResource("Animation_fkybt")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=782907943]
 script = ExtResource("1_cvnsp")
 
@@ -65,6 +73,9 @@ one_shot = true
 
 [node name="DashTimer" type="Timer" parent="." unique_id=104270541]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=698386739]
+libraries/ = SubResource("AnimationLibrary_x3wgy")
 
 [connection signal="area_entered" from="SwordPivot/SwingPivot/SwordHurtBox" to="SwordPivot" method="_on_sword_hurt_box_area_entered"]
 [connection signal="timeout" from="SwordPivot/ComboTimer" to="SwordPivot" method="_on_combo_timer_timeout"]

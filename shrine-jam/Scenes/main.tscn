@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://bpn586u6aqxm5" path="res://scripts/HeartManager.gd" id="7_6bp64"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kry3j"]
 shader = ExtResource("6_21xkr")
@@ -38,3 +39,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HeartContainer" type="Control" parent="CanvasLayer" unique_id=788841365]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_6bp64")

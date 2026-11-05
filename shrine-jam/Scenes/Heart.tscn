@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cdc4ulolj3m4v"]
+
+[ext_resource type="Script" uid="uid://dgw5me0mx43me" path="res://scripts/heart.gd" id="1_d0aq2"]
+[ext_resource type="Texture2D" uid="uid://c7k1foej12hti" path="res://Sprites/heartsprite.png" id="1_eqnwt"]
+
+[node name="Heart" type="Node2D" unique_id=466702233]
+script = ExtResource("1_d0aq2")
+
+[node name="Heartsprite" type="Sprite2D" parent="." unique_id=1244246472]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_eqnwt")
+vframes = 2

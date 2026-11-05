@@ -3,7 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for i in range(3):
+		$CanvasLayer/HeartContainer.addHeart()
 
 var playerPos = Vector2(0,0)
 var playerSpeed = 0

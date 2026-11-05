@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://c807aumkdgmqb" path="res://scripts/projectile.gd" id="1_k1cl8"]
 [ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_y0kec"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3uy8"]
+radius = 27.018513
+
 [node name="projectile" type="Node2D" unique_id=1232980096]
 script = ExtResource("1_k1cl8")
 
@@ -10,3 +13,8 @@ script = ExtResource("1_k1cl8")
 position = Vector2(1.5, -0.5)
 scale = Vector2(0.5546875, 0.13281251)
 texture = ExtResource("2_y0kec")
+
+[node name="ProjectileHurtBox" type="Area2D" parent="." unique_id=1028670663]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileHurtBox" unique_id=1937179714]
+shape = SubResource("CircleShape2D_k3uy8")

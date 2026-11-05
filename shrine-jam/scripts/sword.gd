@@ -5,6 +5,7 @@ var pivotDeg = 0
 var defaultDeg = 50
 var returning = false
 var isSwinging = false
+var isParrying = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -35,6 +36,7 @@ func block():
 	$SwingPivot.position.y = -80
 	$BlockTimer.start()
 	$ParryTimer.start()
+	isParrying = true
 func swing():
 	weaponRotDynamics = Dynamics.create_dynamics(8.0, 0.3, 2.0)
 	match attack:
@@ -65,3 +67,7 @@ func _on_return_timer_timeout() -> void:
 
 func _on_block_timer_timeout() -> void:
 	r()
+
+
+func _on_parry_timer_timeout() -> void:
+	isParrying = false

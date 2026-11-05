@@ -40,3 +40,13 @@ func dash(dir: Vector2, distance: float, dSpeed: float):
 	
 func _on_dash_timer_timeout() -> void:
 	isDashing=false
+
+
+func _on_player_hit_box_area_entered(area: Area2D) -> void:
+	if area.name == "ProjectileHurtBox":
+		if $SwordPivot.isParrying:
+			area.get_parent().parried = true
+			area.get_parent().speed *= 3
+			area.get_parent().rotation = atan2(get_global_mouse_position().y-global_position.y,get_global_mouse_position().x-global_position.x)
+		else:
+			area.get_parent().queue_free()

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://d0v0l1p4dt5s4"]
 
-[ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_6t5aa"]
-[ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://Scripts/CameraBehaviour.gd" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://Scripts/sword.gd" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://bdk31b2wqjt81" path="res://Sprites/monk_sprite-Sheet.png" id="2_fkybt"]
+[ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://scripts/CameraBehaviour.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://scripts/sword.gd" id="4_vgqql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
 size = Vector2(124, 120)
@@ -18,9 +19,13 @@ script = ExtResource("1_cvnsp")
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_k3uy8")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=726086064]
-position = Vector2(1, -6)
-texture = ExtResource("2_6t5aa")
+[node name="Sprite" type="Sprite2D" parent="." unique_id=726086064]
+texture_filter = 1
+position = Vector2(0, -10)
+scale = Vector2(4, 4)
+texture = ExtResource("2_fkybt")
+hframes = 4
+vframes = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=16901069]
 zoom = Vector2(0.5, 0.5)

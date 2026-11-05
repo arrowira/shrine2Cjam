@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c52p3eho210at"]
+
+[ext_resource type="Texture2D" uid="uid://btgxsm7rsaxiv" path="res://Sprites/shrine-Sheet (1).webp" id="1_sgxto"]
+
+[node name="Shrine" type="Node2D" unique_id=2017955441]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1058233954]
+texture_filter = 1
+position = Vector2(1, -187)
+scale = Vector2(-4, 4)
+texture = ExtResource("1_sgxto")
+hframes = 12
+vframes = 2

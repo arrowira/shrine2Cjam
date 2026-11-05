@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b5lq7xoo0djs7"]
 
 [ext_resource type="PackedScene" uid="uid://d0v0l1p4dt5s4" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://Scripts/GameManager.gd" id="1_jjvhh"]
+[ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://scripts/GameManager.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
 
 [node name="Main" type="Node2D" unique_id=1040881665]
 script = ExtResource("1_jjvhh")
@@ -18,3 +19,6 @@ texture = ExtResource("2_bo1nx")
 
 [node name="Sorcerer" parent="." unique_id=1551394208 instance=ExtResource("4_jjvhh")]
 position = Vector2(469, 67)
+
+[node name="Shrine" parent="." unique_id=2017955441 instance=ExtResource("5_kry3j")]
+position = Vector2(-4, 25)

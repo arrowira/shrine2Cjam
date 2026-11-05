@@ -8,6 +8,8 @@ var dashSpeed = 0
 var dashDir = Vector2(0,0)
 
 func _physics_process(delta: float) -> void:
+	z_index = global_position.y
+	
 	input = Input.get_vector("left", "right", "up", "down")
 	
 	if isDashing:

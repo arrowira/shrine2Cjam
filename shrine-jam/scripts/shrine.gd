@@ -1,6 +1,7 @@
 extends Node2D
 
-
+@onready var anim = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	anim.play("idle")
+	z_index = (global_position.y-80)

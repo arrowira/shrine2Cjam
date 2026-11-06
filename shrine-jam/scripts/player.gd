@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		velocity += input * speed
 		velocity *= 0.8
 	
-	if Input.is_action_just_pressed("attack") and $SwordPivot.returning==false:
+	if Input.is_action_just_pressed("attack") and ($SwordPivot/ReturnTimer.time_left < 0.1 or $SwordPivot.returning == false):
 		if $SwordPivot.attack == 2:
 			dash((get_global_mouse_position()-global_position).normalized(), 10, 5)
 		$SwordPivot.swing()

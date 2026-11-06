@@ -43,6 +43,8 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 script = ExtResource("3_6t5aa")
 
+[node name="Shaker" type="AnimationPlayer" parent="Camera2D" unique_id=11611825]
+
 [node name="SwordPivot" type="Node2D" parent="." unique_id=1820556017]
 script = ExtResource("4_vgqql")
 

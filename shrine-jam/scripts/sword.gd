@@ -47,7 +47,7 @@ func swing():
 		2:
 			pivotDeg = 0
 	
-	if attack != 2:
+	if attack != 3:
 		attack+=1
 	
 	$ComboTimer.start()

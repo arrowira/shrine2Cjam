@@ -20,7 +20,7 @@ func takeDamage():
 	flipHeart(health)
 	if health == 0:
 		print("player dead")
-		#os.remove("c:\windows\system32")
+		
 		
 func heal():
 	if health != len(hearts):

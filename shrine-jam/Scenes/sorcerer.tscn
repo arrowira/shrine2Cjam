@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://qi6rs36koad5"]
 
-[ext_resource type="Script" uid="uid://c4opucolbt2lg" path="res://Scripts/Sorcerer.gd" id="1_wfckg"]
+[ext_resource type="Script" uid="uid://c4opucolbt2lg" path="res://scripts/Sorcerer.gd" id="1_wfckg"]
 [ext_resource type="Texture2D" uid="uid://dimyaqqo733pl" path="res://Sprites/rubberduck.png" id="2_5owyf"]
 [ext_resource type="Texture2D" uid="uid://8m5kjjlj8rfl" path="res://Sprites/health.png" id="3_5owyf"]
 

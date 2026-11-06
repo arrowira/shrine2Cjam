@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bhvmhvul8n38a"]
+
+[ext_resource type="Script" uid="uid://bk7jadcceam5" path="res://control.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Control" unique_id=924485212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 69.0
+offset_top = 20.0
+offset_right = -45.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=974467634]
+layout_mode = 0
+offset_left = 288.09
+offset_top = 310.0
+offset_right = 1301.0898
+offset_bottom = 446.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1273787712]
+layout_mode = 2
+
+[node name="new" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1555307429]
+layout_mode = 2
+text = "New Game"
+
+[node name="rules" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2010009545]
+layout_mode = 2
+text = "How To Play
+"
+
+[node name="options" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1911506156]
+layout_mode = 2
+text = "Options
+"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1024914079]
+layout_mode = 2
+text = "Quit Game"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/new" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/rules" to="." method="_on_rules_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

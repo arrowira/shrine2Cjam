@@ -5,10 +5,19 @@ var state = "idle"
 @onready var area_2d: Area2D = $Area2D
 
 var pProjectile = preload("res://Scenes/Projectile.tscn")
+var playerPos
+var playerDist
+var movementDir = Vector2(0,0)
+var speed = 300
 
 func _process(delta: float) -> void:
+	playerPos = get_tree().current_scene.playerPos
+	playerDist = global_position.distance_to(playerPos)
 	velocity *= 0.9
 	move_and_slide()
+	
+func _physics_process(delta: float) -> void:
+	position += movementDir
 
 
 
@@ -28,8 +37,9 @@ func healthbar_changed(value : float) -> void:
 	if value == 0:
 		queue_free()
 
-
+var dir = 1
 func updateBehaviour() -> void:
+	movementDir = Vector2(0,0)
 	var roll = randf()
 	if roll < 0.1:
 		print("shoot")
@@ -38,4 +48,11 @@ func updateBehaviour() -> void:
 		get_parent().add_child(newProjectile)
 		
 	elif roll < 0.3:
+		if randf()<0.3:
+			dir*=-1
 		print("walk")
+		if playerDist < 650:
+			movementDir = (global_position-playerPos).normalized()
+		else:
+			movementDir = ((global_position-playerPos).orthogonal() * dir).normalized()
+		

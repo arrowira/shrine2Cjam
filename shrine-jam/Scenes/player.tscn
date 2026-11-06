@@ -43,7 +43,9 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 script = ExtResource("3_6t5aa")
 
-[node name="Shaker" type="AnimationPlayer" parent="Camera2D" unique_id=11611825]
+[node name="ShakeTimer" type="Timer" parent="Camera2D" unique_id=373764783]
+wait_time = 0.05
+one_shot = true
 
 [node name="SwordPivot" type="Node2D" parent="." unique_id=1820556017]
 script = ExtResource("4_vgqql")
@@ -91,6 +93,7 @@ libraries/ = SubResource("AnimationLibrary_x3wgy")
 position = Vector2(4, -5)
 shape = SubResource("RectangleShape2D_rgcy0")
 
+[connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="area_entered" from="SwordPivot/SwingPivot/SwordHurtBox" to="SwordPivot" method="_on_sword_hurt_box_area_entered"]
 [connection signal="timeout" from="SwordPivot/ComboTimer" to="SwordPivot" method="_on_combo_timer_timeout"]
 [connection signal="timeout" from="SwordPivot/ReturnTimer" to="SwordPivot" method="_on_return_timer_timeout"]

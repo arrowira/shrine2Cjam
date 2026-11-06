@@ -7,15 +7,15 @@
 shader = ExtResource("2_3vrif")
 
 [node name="BloodSpatter" type="Node2D" unique_id=1579081551]
-position = Vector2(-204, 165)
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1626560703]
 position = Vector2(6, -1)
 texture = ExtResource("1_if7dm")
 
 [node name="pixelator" type="ColorRect" parent="." unique_id=1329601166]
+texture_filter = 1
 material = SubResource("ShaderMaterial_if7dm")
-offset_left = -80.0
-offset_top = -82.0
-offset_right = 95.0
-offset_bottom = 84.0
+offset_left = -405.0
+offset_top = -79.0
+offset_right = 321.0
+offset_bottom = 87.0

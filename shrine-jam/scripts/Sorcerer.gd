@@ -26,12 +26,15 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if area.get_parent().get_parent().isSwinging:
 			velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2+get_tree().current_scene.playerSpeed)
 			print('hit')
-			area_2d.connect("area_entered", decrease_life_points)
+			decrease_life_points()
 			texture_progress_bar.connect("value_changed", healthbar_changed)
-func decrease_life_points(area : Area2D) -> void:
-	if area.name == "SwordHurtBox":
-		if area.get_parent().get_parent().isSwinging:
-			texture_progress_bar.value -= 1
+	if (area.name == "ProjectileHurtBox" and area.get_parent().parried):
+		decrease_life_points()
+		velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2)
+func decrease_life_points():
+	texture_progress_bar.value -= 1
+	print("youch")
+			
 
 func healthbar_changed(value : float) -> void:
 	if value == 0:

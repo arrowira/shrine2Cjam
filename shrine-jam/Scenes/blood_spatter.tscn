@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bhq3mxd4ns5h4"]
+
+[ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="1_if7dm"]
+[ext_resource type="Shader" uid="uid://c34sftulhed8" path="res://pixelator.gdshader" id="2_3vrif"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if7dm"]
+shader = ExtResource("2_3vrif")
+
+[node name="BloodSpatter" type="Node2D" unique_id=1579081551]
+position = Vector2(-204, 165)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1626560703]
+position = Vector2(6, -1)
+texture = ExtResource("1_if7dm")
+
+[node name="pixelator" type="ColorRect" parent="." unique_id=1329601166]
+material = SubResource("ShaderMaterial_if7dm")
+offset_left = -80.0
+offset_top = -82.0
+offset_right = 95.0
+offset_bottom = 84.0

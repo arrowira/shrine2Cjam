@@ -8,7 +8,7 @@ var pProjectile = preload("res://Scenes/Projectile.tscn")
 var playerPos
 var playerDist
 var movementDir = Vector2(0,0)
-var speed = 300
+var speed = 2
 
 func _process(delta: float) -> void:
 	playerPos = get_tree().current_scene.playerPos
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 func _physics_process(delta: float) -> void:
-	position += movementDir
+	position += movementDir*speed
 
 
 
@@ -41,13 +41,18 @@ var dir = 1
 func updateBehaviour() -> void:
 	movementDir = Vector2(0,0)
 	var roll = randf()
+	var walkChance
+	if playerDist < 400:
+		walkChance = 0.8
+	else:
+		walkChance = 0.3
 	if roll < 0.1:
 		print("shoot")
 		var newProjectile = pProjectile.instantiate()
 		newProjectile.global_position = global_position
 		get_parent().add_child(newProjectile)
 		
-	elif roll < 0.3:
+	elif roll < walkChance:
 		if randf()<0.3:
 			dir*=-1
 		print("walk")

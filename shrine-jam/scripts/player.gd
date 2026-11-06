@@ -11,6 +11,10 @@ func _physics_process(delta: float) -> void:
 	z_index = global_position.y
 	
 	input = Input.get_vector("left", "right", "up", "down")
+	if velocity.x >= 0:
+		$SpritePivot.scale.x = 1
+	elif velocity.x <= 0:
+		$SpritePivot.scale.x = -1
 	
 	if isDashing:
 		velocity += dashDir*dashSpeed

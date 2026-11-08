@@ -18,3 +18,6 @@ func _process(delta: float) -> void:
 
 func takeDamage():
 	$CanvasLayer/HeartContainer.takeDamage()
+
+func enemyKilled():
+	shrineRadius += 0.005

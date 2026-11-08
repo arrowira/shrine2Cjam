@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dsofxytpm3dy1"]
+
+[ext_resource type="Script" uid="uid://6fbg42iuwur5" path="res://scripts/ghost.gd" id="1_rm6hp"]
+[ext_resource type="Texture2D" uid="uid://dimyaqqo733pl" path="res://Sprites/rubberduck.png" id="2_x10qx"]
+
+[node name="GruntGhost" type="Node2D" unique_id=1534764734]
+z_index = -600
+script = ExtResource("1_rm6hp")
+
+[node name="spritePivot" type="Node2D" parent="." unique_id=1176863910]
+
+[node name="Rubberduck" type="Sprite2D" parent="spritePivot" unique_id=1308671597]
+position = Vector2(1, 1)
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_x10qx")

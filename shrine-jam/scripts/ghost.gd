@@ -14,3 +14,5 @@ func _physics_process(delta: float) -> void:
 	
 	if global_position.length() <= 10:
 		queue_free()
+		get_tree().current_scene.enemyKilled()
+		

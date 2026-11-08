@@ -13,6 +13,7 @@ var health = 100
 var dead = false
 var inSword = false
 var preHitState 
+var pGhost = preload("res://Scenes/grunt_ghost.tscn")
 
 
 func _process(delta: float) -> void:
@@ -43,6 +44,9 @@ func _process(delta: float) -> void:
 		aggro = true
 		
 func die():
+	var ghost = pGhost.instantiate()
+	ghost.global_position = global_position
+	get_parent().add_child(ghost)
 	queue_free()
 	
 func _physics_process(delta: float) -> void:

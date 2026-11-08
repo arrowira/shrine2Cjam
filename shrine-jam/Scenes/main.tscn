@@ -3,11 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://d0v0l1p4dt5s4" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://scripts/GameManager.gd" id="1_jjvhh"]
 [ext_resource type="Shader" uid="uid://btwgxlt0404ch" path="res://shrine_border.gdshader" id="2_6bp64"]
+[ext_resource type="Shader" uid="uid://bcdka20ka3w8o" path="res://FishEye.gdshader" id="2_344ge"]
 [ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="3_344ge"]
 [ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://bpn586u6aqxm5" path="res://scripts/HeartManager.gd" id="7_6bp64"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_344ge"]
+shader = ExtResource("2_344ge")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k3uy8"]
 shader = ExtResource("2_6bp64")
@@ -21,7 +25,16 @@ shader_parameter/lightColor = Color(0.6686414, 0.28265265, 0.23740968, 1)
 [node name="Main" type="Node2D" unique_id=1040881665]
 script = ExtResource("1_jjvhh")
 
+[node name="FishEye" type="ColorRect" parent="." unique_id=2031992868]
+z_index = -500
+material = SubResource("ShaderMaterial_344ge")
+offset_left = -7139.0
+offset_top = -6584.0
+offset_right = 7340.0
+offset_bottom = 6581.0
+
 [node name="ShrineBorder" type="ColorRect" parent="." unique_id=120893510]
+visible = false
 material = SubResource("ShaderMaterial_k3uy8")
 offset_left = -7088.0
 offset_top = -6384.0

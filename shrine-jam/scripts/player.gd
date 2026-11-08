@@ -56,6 +56,7 @@ func _on_dash_timer_timeout() -> void:
 func _on_player_hit_box_area_entered(area: Area2D) -> void:
 	if area.name == "ProjectileHurtBox":
 		if $SwordPivot.isParrying:
+			$Parry.play()
 			$Camera2D.shake(5,5)
 			area.get_parent().parried = true
 			area.get_parent().speed *= 3

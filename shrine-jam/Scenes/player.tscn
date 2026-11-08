@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://d0v0l1p4dt5s4"]
 
-[ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cwli1uhevabp5" path="res://Sprites/monk_sprite-Sheet-export-export.webp" id="2_x3wgy"]
-[ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://scripts/CameraBehaviour.gd" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://scripts/sword.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://Scripts/CameraBehaviour.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://Scripts/sword.gd" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://dg3h3o0yqj33k" path="res://Sprites/monk-swordf.webp" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://bnpt1c7tel1jj" path="res://Sprites/player_ad_enemy_shadow.png" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://d0qiju67nf66a" path="res://Sounds/floraphonic-metal-hit-64-193325.mp3" id="7_3smsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
 size = Vector2(55, 90)
@@ -46,7 +47,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_3smsa"]
 resource_name = "walk"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -150,6 +151,10 @@ texture_filter = 1
 position = Vector2(6, 37)
 scale = Vector2(4, 4)
 texture = ExtResource("6_x3wgy")
+
+[node name="Parry" type="AudioStreamPlayer2D" parent="." unique_id=1800474815]
+stream = ExtResource("7_3smsa")
+volume_db = 2.916
 
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="area_entered" from="SwordPivot/SwingPivot/SwordHurtBox" to="SwordPivot" method="_on_sword_hurt_box_area_entered"]

@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://xat0ko75skw8"]
 
+[ext_resource type="Script" uid="uid://6fbg42iuwur5" path="res://scripts/ghost.gd" id="1_ubry3"]
+[ext_resource type="Texture2D" uid="uid://dimyaqqo733pl" path="res://Sprites/rubberduck.png" id="2_das0d"]
+
 [node name="SorcererGhost" type="Node2D" unique_id=1534764734]
+z_index = -600
+script = ExtResource("1_ubry3")
+
+[node name="Rubberduck" type="Sprite2D" parent="." unique_id=1308671597]
+position = Vector2(1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_das0d")

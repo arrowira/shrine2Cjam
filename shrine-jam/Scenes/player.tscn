@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dg3h3o0yqj33k" path="res://Sprites/monk-swordf.webp" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://bnpt1c7tel1jj" path="res://Sprites/player_ad_enemy_shadow.png" id="6_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://d0qiju67nf66a" path="res://Sounds/floraphonic-metal-hit-64-193325.mp3" id="7_3smsa"]
+[ext_resource type="AudioStream" uid="uid://cms57nykiq3mr" path="res://Sounds/dragon-studio-whoosh-effect-382717 (1).mp3" id="8_8erm5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
 size = Vector2(55, 90)
@@ -155,6 +156,9 @@ texture = ExtResource("6_x3wgy")
 [node name="Parry" type="AudioStreamPlayer2D" parent="." unique_id=1800474815]
 stream = ExtResource("7_3smsa")
 volume_db = 2.916
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="." unique_id=201750028]
+stream = ExtResource("8_8erm5")
 
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="area_entered" from="SwordPivot/SwingPivot/SwordHurtBox" to="SwordPivot" method="_on_sword_hurt_box_area_entered"]

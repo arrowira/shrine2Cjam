@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 
 func dash(dir: Vector2, distance: float, dSpeed: float):
 	isDashing=true
+	$Dash.play()
 	dashDir = dir
 	dashSpeed = speed*dSpeed
 	$DashTimer.wait_time = 0.01*distance

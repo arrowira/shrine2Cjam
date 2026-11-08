@@ -2,12 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://d0v0l1p4dt5s4" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://scripts/GameManager.gd" id="1_jjvhh"]
-[ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_bo1nx"]
+[ext_resource type="Shader" uid="uid://btwgxlt0404ch" path="res://shrine_border.gdshader" id="2_6bp64"]
+[ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="3_344ge"]
 [ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://bpn586u6aqxm5" path="res://scripts/HeartManager.gd" id="7_6bp64"]
-[ext_resource type="PackedScene" uid="uid://bhq3mxd4ns5h4" path="res://Scenes/blood_spatter.tscn" id="8_344ge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3uy8"]
+shader = ExtResource("2_6bp64")
+shader_parameter/radius = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kry3j"]
 shader = ExtResource("6_21xkr")
@@ -17,13 +21,16 @@ shader_parameter/lightColor = Color(0.6686414, 0.28265265, 0.23740968, 1)
 [node name="Main" type="Node2D" unique_id=1040881665]
 script = ExtResource("1_jjvhh")
 
+[node name="ShrineBorder" type="ColorRect" parent="." unique_id=120893510]
+material = SubResource("ShaderMaterial_k3uy8")
+offset_left = -7088.0
+offset_top = -6384.0
+offset_right = 7140.0
+offset_bottom = 6505.0
+script = ExtResource("3_344ge")
+
 [node name="Player" parent="." unique_id=782907943 instance=ExtResource("1_jjgbg")]
 position = Vector2(39, 29)
-
-[node name="Icon" type="Sprite2D" parent="." unique_id=892194972]
-position = Vector2(383, 212.5)
-scale = Vector2(1.328125, 0.101562515)
-texture = ExtResource("2_bo1nx")
 
 [node name="Sorcerer" parent="." unique_id=1551394208 instance=ExtResource("4_jjvhh")]
 position = Vector2(469, 67)
@@ -47,6 +54,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BloodSpatter" parent="." unique_id=1579081551 instance=ExtResource("8_344ge")]
-position = Vector2(47, 299)

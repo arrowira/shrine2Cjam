@@ -6,6 +6,7 @@ var input
 var isDashing = false
 var dashSpeed = 0
 var dashDir = Vector2(0,0)
+@onready var anim = $AnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	z_index = global_position.y
@@ -15,6 +16,12 @@ func _physics_process(delta: float) -> void:
 		$SpritePivot.scale.x = 1
 	elif velocity.x <= 0:
 		$SpritePivot.scale.x = -1
+	
+	if velocity.length()> 300:
+		anim.play("walk")
+	else:
+		anim.play("idle")
+		
 	
 	if isDashing:
 		velocity += dashDir*dashSpeed

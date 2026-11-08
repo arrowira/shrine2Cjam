@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdk31b2wqjt81"
-path="res://.godot/imported/monk_sprite-Sheet.png-dcc519531afe42a154293da7f7b0ee35.ctex"
+uid="uid://cwli1uhevabp5"
+path="res://.godot/imported/monk_sprite-Sheet-export-export.webp-c3e6eea9fefaabe6986767ed7e2a2ebc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/monk_sprite-Sheet.png"
-dest_files=["res://.godot/imported/monk_sprite-Sheet.png-dcc519531afe42a154293da7f7b0ee35.ctex"]
+source_file="res://Sprites/monk_sprite-Sheet-export-export.webp"
+dest_files=["res://.godot/imported/monk_sprite-Sheet-export-export.webp-c3e6eea9fefaabe6986767ed7e2a2ebc.ctex"]
 
 [params]
 

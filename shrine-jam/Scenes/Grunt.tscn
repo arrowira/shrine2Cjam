@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dplqg1l5w2uk8"]
 
-[ext_resource type="Script" uid="uid://de0avim7strj3" path="res://Scripts/EnemyBehaviour.gd" id="1_jpaow"]
+[ext_resource type="Script" uid="uid://de0avim7strj3" path="res://scripts/EnemyBehaviour.gd" id="1_jpaow"]
 [ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_lfdme"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]
@@ -27,6 +27,11 @@ position = Vector2(-4.5, 0.5)
 shape = SubResource("RectangleShape2D_jjj3t")
 
 [node name="CCollider" type="CollisionShape2D" parent="." unique_id=361230111]
-visible = false
 position = Vector2(-4.5, 0.5)
 shape = SubResource("RectangleShape2D_jjj3t")
+
+[node name="MoodClock" type="Timer" parent="." unique_id=271367783]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="MoodClock" to="." method="_on_mood_clock_timeout"]

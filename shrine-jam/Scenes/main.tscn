@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://scripts/GameManager.gd" id="1_jjvhh"]
 [ext_resource type="Shader" uid="uid://btwgxlt0404ch" path="res://shrine_border.gdshader" id="2_6bp64"]
 [ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="3_344ge"]
+[ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://bpn586u6aqxm5" path="res://scripts/HeartManager.gd" id="7_6bp64"]
@@ -54,3 +55,6 @@ grow_vertical = 2
 
 [node name="Grunt" parent="." unique_id=952265716 instance=ExtResource("9_ynf5e")]
 position = Vector2(-957, 654)
+
+[node name="Sorcerer" parent="." unique_id=1551394208 instance=ExtResource("4_jjvhh")]
+position = Vector2(-622, 177)

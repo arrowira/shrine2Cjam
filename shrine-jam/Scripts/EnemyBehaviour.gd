@@ -9,12 +9,18 @@ var speed = 0
 var aggro = false
 var coin = 1
 var inPlayer = false
+var health = 100
+var dead = false
 
 
 func _process(delta: float) -> void:
 	playerPos = get_tree().current_scene.playerPos
 	playerDist = global_position.distance_to(playerPos)
 	playerDir = (playerPos-global_position).normalized()
+	
+	if health <= 0:
+		dead = true
+		die()
 	
 	if state != "pounce":
 		if movementDir.x >= 0:
@@ -29,7 +35,10 @@ func _process(delta: float) -> void:
 	
 	if playerDist < 800:
 		aggro = true
-
+		
+func die():
+	queue_free()
+	
 func _physics_process(delta: float) -> void:
 	$Label.text = state
 	position += movementDir*speed
@@ -55,6 +64,7 @@ func _physics_process(delta: float) -> void:
 			if get_tree().current_scene.get_node("Player").isParrying():
 				state = "parried"
 				movementDir= -playerDir
+				health -= 10
 				$ParriedTimer.start()
 			else:
 				get_tree().current_scene.get_node("Player").takeDamage()

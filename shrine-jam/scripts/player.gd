@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			$SFX/Slash.volume_db = randf_range(-4, 0)
 			$SFX/Slash.play()
 		else:
-			$SFX/Slash.pitch_scale = randf_range(1.2, 1.5)
+			$SFX/Slash.pitch_scale = randf_range(1.1, 1.4)
 			$SFX/Slash.volume_db = randf_range(-4, 0)
 			$SFX/Slash.play()
 		$SwordPivot.swing()

@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		dead = true
 		die()
 	
-	if state != "pounce" and  state!= "hit":
+	if state != "pounce" and  state!= "hit" and state != "pre attack":
 		if movementDir.x >= 0:
 			$Sprite.scale.x = -8
 		elif movementDir.x <= 0:
@@ -52,8 +52,10 @@ func _physics_process(delta: float) -> void:
 		movementDir = playerDir
 	if state == "pounce":
 		movementDir = playerDir.orthogonal() * coin
+	if state == "pre attack":
+		speed = 0
 	if state == "attacking":
-		speed = 20 * pow($AttackTimer.time_left/$AttackTimer.wait_time, 3)
+		speed = 20 * pow($AttackTimer.time_left/$AttackTimer.wait_time, 2)
 	if state == "retreat":
 		movementDir = -playerDir
 	if state == "parried":
@@ -110,10 +112,11 @@ func _on_mood_clock_timeout() -> void:
 			elif mood < 0.7:
 				if state == "pounce":
 					#attack
-					state = "attacking"
+					state = "pre attack"
+					
 					$AnimationPlayer.play("attack")
-					$AttackTimer.start()
-					movementDir = playerDir
+					$PreattackTimer.start()
+					movementDir = -playerDir
 	
 
 
@@ -171,3 +174,9 @@ func _on_grunt_hit_box_area_exited(area: Area2D) -> void:
 func _on_hit_timer_timeout() -> void:
 	state = preHitState
 	movementDir = playerDir
+
+
+func _on_preattack_timer_timeout() -> void:
+	state = "attacking"
+	$AttackTimer.start()
+	movementDir=playerDir

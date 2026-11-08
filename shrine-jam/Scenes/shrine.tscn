@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coibjt4tu8ywq" path="res://scripts/shrine.gd" id="1_31tbt"]
 [ext_resource type="Texture2D" uid="uid://btgxsm7rsaxiv" path="res://Sprites/shrine-Sheet (1).webp" id="1_sgxto"]
+[ext_resource type="Texture2D" uid="uid://dbcba22e42bdm" path="res://Sprites/shrine_shadow.webp" id="3_gl0vf"]
 
 [sub_resource type="Animation" id="Animation_gl0vf"]
 length = 0.001
@@ -57,6 +58,9 @@ _data = {
 &"idle": SubResource("Animation_df5ks")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3uy8"]
+radius = 81.055534
+
 [node name="Shrine" type="Node2D" unique_id=2017955441]
 script = ExtResource("1_31tbt")
 
@@ -72,3 +76,16 @@ vframes = 2
 libraries/ = SubResource("AnimationLibrary_fslag")
 speed_scale = 0.3
 movie_quit_on_finish = true
+
+[node name="ShrineShadow" type="Sprite2D" parent="." unique_id=776537620]
+z_index = -100
+texture_filter = 1
+position = Vector2(-107, -82)
+scale = Vector2(4, 4)
+texture = ExtResource("3_gl0vf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1090766481]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=596164278]
+position = Vector2(4, -37)
+shape = SubResource("CircleShape2D_k3uy8")

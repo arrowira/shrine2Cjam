@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d0v0l1p4dt5s4"]
 
-[ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cwli1uhevabp5" path="res://Sprites/monk_sprite-Sheet-export-export.webp" id="2_x3wgy"]
-[ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://Scripts/CameraBehaviour.gd" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://Scripts/sword.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://scripts/CameraBehaviour.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://scripts/sword.gd" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://dg3h3o0yqj33k" path="res://Sprites/monk-swordf.webp" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://bnpt1c7tel1jj" path="res://Sprites/player_ad_enemy_shadow.png" id="6_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://dko4ilpymbsdy" path="res://Sounds/floraphonic-metal-hit-64-193325.mp3" id="7_3smsa"]
@@ -148,7 +148,7 @@ position = Vector2(4, -5)
 shape = SubResource("RectangleShape2D_rgcy0")
 
 [node name="PlayerAdEnemyShadow" type="Sprite2D" parent="." unique_id=1967876638]
-z_index = -1
+z_index = -100
 texture_filter = 1
 position = Vector2(6, 37)
 scale = Vector2(4, 4)

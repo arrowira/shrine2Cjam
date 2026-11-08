@@ -12,13 +12,24 @@ func _process(delta: float) -> void:
 	playerPos = get_tree().current_scene.playerPos
 	playerDist = global_position.distance_to(playerPos)
 	playerDir = (playerPos-global_position).normalized()
+	
+	if movementDir.x >= 0:
+		$Sprite.scale.x = -8
+	elif movementDir.x <= 0:
+		$Sprite.scale.x = 8
+	
 	if playerDist < 800:
 		aggro = true
 
 func _physics_process(delta: float) -> void:
+	
 	position += movementDir*speed
 	if state == "pursue":
+		$AnimationPlayer.play("walk")
 		movementDir = playerDir
+	if state == "pounce" or state == "idle":
+		$AnimationPlayer.play("idle")
+		
 
 	
 	

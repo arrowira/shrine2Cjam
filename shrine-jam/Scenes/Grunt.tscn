@@ -1,23 +1,63 @@
 [gd_scene format=3 uid="uid://dplqg1l5w2uk8"]
 
 [ext_resource type="Script" uid="uid://de0avim7strj3" path="res://scripts/EnemyBehaviour.gd" id="1_jpaow"]
-[ext_resource type="Texture2D" uid="uid://dkijon0mpp4ce" path="res://Sprites/icon.svg" id="2_lfdme"]
+[ext_resource type="Texture2D" uid="uid://ivq7ye5gqsql" path="res://Sprites/Zombie_spritesheet.webp" id="2_jpaow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]
-size = Vector2(33, 129)
+size = Vector2(98, 129)
+
+[sub_resource type="Animation" id="Animation_jpaow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lfdme"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_nwxbd"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tj05f"]
+_data = {
+&"RESET": SubResource("Animation_jpaow"),
+&"idle": SubResource("Animation_lfdme"),
+&"walk": SubResource("Animation_nwxbd")
+}
 
 [node name="Grunt" type="CharacterBody2D" unique_id=952265716]
 script = ExtResource("1_jpaow")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1981226892]
+texture_filter = 1
 position = Vector2(-5, 0)
-scale = Vector2(0.24999999, 1)
-texture = ExtResource("2_lfdme")
-
-[node name="Pointer" type="Sprite2D" parent="Sprite" unique_id=155627340]
-position = Vector2(56.000008, -0.99999905)
-scale = Vector2(1.2558596, 0.3203125)
-texture = ExtResource("2_lfdme")
+scale = Vector2(8, 8)
+texture = ExtResource("2_jpaow")
+hframes = 10
+vframes = 4
 
 [node name="Collider" type="Area2D" parent="." unique_id=1055274215]
 visible = false
@@ -27,11 +67,15 @@ position = Vector2(-4.5, 0.5)
 shape = SubResource("RectangleShape2D_jjj3t")
 
 [node name="CCollider" type="CollisionShape2D" parent="." unique_id=361230111]
-position = Vector2(-4.5, 0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_jjj3t")
 
 [node name="MoodClock" type="Timer" parent="." unique_id=271367783]
 wait_time = 0.5
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=291875894]
+libraries/ = SubResource("AnimationLibrary_tj05f")
+speed_scale = 0.8
 
 [connection signal="timeout" from="MoodClock" to="." method="_on_mood_clock_timeout"]

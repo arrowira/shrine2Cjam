@@ -7,7 +7,10 @@
 z_index = -600
 script = ExtResource("1_ubry3")
 
-[node name="Rubberduck" type="Sprite2D" parent="." unique_id=1308671597]
+[node name="spritePivot" type="Node2D" parent="." unique_id=1176863910]
+
+[node name="Rubberduck" type="Sprite2D" parent="spritePivot" unique_id=1308671597]
 position = Vector2(1, 1)
+rotation = 1.5707964
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_das0d")

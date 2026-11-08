@@ -34,17 +34,20 @@ func _physics_process(delta: float) -> void:
 		if $SwordPivot.attack == 2:
 			dash((get_global_mouse_position()-global_position).normalized(), 10, 5)
 		$SwordPivot.swing()
+		$Slash.pitch_scale = randf_range(1.1, 1.5)
+		$Slash.volume_db = randf_range(-2, 2)
+		$Slash.play()
 	
 	if Input.is_action_just_pressed("block") and $SwordPivot.returning==false:
 		$SwordPivot.block()
 	if Input.is_action_just_pressed("dash") and isDashing == false:
+		$Dash.play()
 		dash(input,20,5)
 		
 	move_and_slide()
 
 func dash(dir: Vector2, distance: float, dSpeed: float):
 	isDashing=true
-	$Dash.play()
 	dashDir = dir
 	dashSpeed = speed*dSpeed
 	$DashTimer.wait_time = 0.01*distance

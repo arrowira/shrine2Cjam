@@ -7,16 +7,23 @@ var playerDir
 var movementDir = Vector2.ZERO
 var speed = 0 
 var aggro = false
+var coin = 1
 
 func _process(delta: float) -> void:
 	playerPos = get_tree().current_scene.playerPos
 	playerDist = global_position.distance_to(playerPos)
 	playerDir = (playerPos-global_position).normalized()
 	
-	if movementDir.x >= 0:
-		$Sprite.scale.x = -8
-	elif movementDir.x <= 0:
-		$Sprite.scale.x = 8
+	if state != "pounce":
+		if movementDir.x >= 0:
+			$Sprite.scale.x = -8
+		elif movementDir.x <= 0:
+			$Sprite.scale.x = 8
+	else:
+		if playerDir.x >= 0:
+			$Sprite.scale.x = -8
+		elif playerDir.x <= 0:
+			$Sprite.scale.x = 8
 	
 	if playerDist < 800:
 		aggro = true
@@ -27,25 +34,25 @@ func _physics_process(delta: float) -> void:
 	if state == "pursue":
 		movementDir = playerDir
 	if state == "pounce":
-		movementDir = playerDir.orthogonal()
+		movementDir = playerDir.orthogonal() * coin
 	if state == "attacking":
-		speed = 10 * $AttackTimer.time_left/$AttackTimer.wait_time
+		speed = 20 * pow($AttackTimer.time_left/$AttackTimer.wait_time, 3)
 	if state == "retreat":
 		movementDir = -playerDir
-	if state == "retreat" or state == "pursue" or state == "pounce":
-		$AnimationPlayer.play("walk")
-	if state == "idle":
-		$AnimationPlayer.play("idle")
+	if state != "attacking":
+		if state == "retreat" or state == "pursue" or state == "pounce":
+			$AnimationPlayer.play("walk")
+		if state == "idle":
+			$AnimationPlayer.play("idle")
 	
 		
 		
 
-	
-	
-	
-var coin = 1
 func _on_mood_clock_timeout() -> void:
 	var mood = randf()
+	
+	if mood < 0.3:
+		coin *= -1
 	
 	if aggro == false:
 		if mood < 0.4:
@@ -53,7 +60,6 @@ func _on_mood_clock_timeout() -> void:
 			speed = 3
 		elif mood < 0.6:
 			speed = 0
-			coin *= -1
 	else:
 		#aggro
 		if state != "attacking":
@@ -69,6 +75,7 @@ func _on_mood_clock_timeout() -> void:
 				if state == "pounce":
 					#attack
 					state = "attacking"
+					$AnimationPlayer.play("attack")
 					$AttackTimer.start()
 					movementDir = playerDir
 	

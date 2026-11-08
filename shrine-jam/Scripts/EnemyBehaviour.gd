@@ -11,6 +11,8 @@ var coin = 1
 var inPlayer = false
 var health = 100
 var dead = false
+var inSword = false
+var preHitState 
 
 
 func _process(delta: float) -> void:
@@ -18,11 +20,15 @@ func _process(delta: float) -> void:
 	playerDist = global_position.distance_to(playerPos)
 	playerDir = (playerPos-global_position).normalized()
 	
+	if inSword and Input.is_action_just_pressed("attack"):
+		swordHit()
+	
+	$hp.value = health
 	if health <= 0:
 		dead = true
 		die()
 	
-	if state != "pounce":
+	if state != "pounce" and  state!= "hit":
 		if movementDir.x >= 0:
 			$Sprite.scale.x = -8
 		elif movementDir.x <= 0:
@@ -52,6 +58,8 @@ func _physics_process(delta: float) -> void:
 		movementDir = -playerDir
 	if state == "parried":
 		speed = 20 * pow($ParriedTimer.time_left/$ParriedTimer.wait_time, 3)
+	if state == "hit":
+		speed *= 0.9
 		
 		
 	if state != "attacking":
@@ -129,3 +137,37 @@ func _on_grunt_hurt_box_area_exited(area: Area2D) -> void:
 func _on_parried_timer_timeout() -> void:
 	state = "idle"
 	speed = 0
+
+func swordHit():
+	var damage
+	var kbStrength
+	movementDir = -playerDir
+	preHitState = state
+	if state == "parried":
+		damage = 50
+		kbStrength = 10
+	else:
+		damage = 20
+		kbStrength = 5
+	health-=damage
+	state = "hit"
+	speed = kbStrength * 3
+	
+	
+
+func _on_grunt_hit_box_area_entered(area: Area2D) -> void:
+	if area.name == "SwordHurtBox":
+		if area.get_parent().get_parent().isSwinging:
+			swordHit()
+		inSword = true
+		
+
+
+func _on_grunt_hit_box_area_exited(area: Area2D) -> void:
+	if area.name == "SwordHurtBox":
+		inSword = false
+
+
+func _on_hit_timer_timeout() -> void:
+	state = preHitState
+	movementDir = playerDir

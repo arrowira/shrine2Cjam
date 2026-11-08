@@ -22,13 +22,22 @@ func _process(delta: float) -> void:
 		aggro = true
 
 func _physics_process(delta: float) -> void:
-	
+	$Label.text = state
 	position += movementDir*speed
 	if state == "pursue":
-		$AnimationPlayer.play("walk")
 		movementDir = playerDir
-	if state == "pounce" or state == "idle":
+	if state == "pounce":
+		movementDir = playerDir.orthogonal()
+	if state == "attacking":
+		speed = 10 * $AttackTimer.time_left/$AttackTimer.wait_time
+	if state == "retreat":
+		movementDir = -playerDir
+	if state == "retreat" or state == "pursue" or state == "pounce":
+		$AnimationPlayer.play("walk")
+	if state == "idle":
 		$AnimationPlayer.play("idle")
+	
+		
 		
 
 	
@@ -47,17 +56,25 @@ func _on_mood_clock_timeout() -> void:
 			coin *= -1
 	else:
 		#aggro
-		if mood < 0.5:
-			if playerDist > 300:
-				#walk towards player
-				state = "pursue"
-				speed = 3
-			else:
-				state = "pounce"
-				speed = 0
-		elif mood < 0.7:
-			if state == "pounce":
-				#attack
-				speed = 10
-				movementDir = playerDir
+		if state != "attacking":
+			if mood < 0.5:
+				if playerDist > 300:
+					#walk towards player
+					state = "pursue"
+					speed = 3
+				else:
+					state = "pounce"
+					speed = 2
+			elif mood < 0.7:
+				if state == "pounce":
+					#attack
+					state = "attacking"
+					$AttackTimer.start()
+					movementDir = playerDir
 	
+
+
+func _on_attack_timer_timeout() -> void:
+	print("retreat")
+	state = "retreat"
+	speed = 3

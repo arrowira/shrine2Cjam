@@ -78,4 +78,15 @@ autostart = true
 libraries/ = SubResource("AnimationLibrary_tj05f")
 speed_scale = 0.8
 
+[node name="AttackTimer" type="Timer" parent="." unique_id=230837176]
+wait_time = 0.5
+one_shot = true
+
+[node name="Label" type="Label" parent="." unique_id=741633984]
+offset_left = -56.0
+offset_top = -97.0
+offset_right = -16.0
+offset_bottom = -74.0
+
 [connection signal="timeout" from="MoodClock" to="." method="_on_mood_clock_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

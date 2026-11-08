@@ -23,7 +23,6 @@ func shake(s, str):
 	$ShakeTimer.start()
 
 func _on_shake_timer_timeout() -> void:
-	print("shake")
 	strength -= strength*0.1
 	offset.x = strength*randf_range(-1,1)
 	offset.y = strength*randf_range(-1,1)

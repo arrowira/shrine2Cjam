@@ -32,7 +32,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			b.global_rotation = D.angle() 
 			b.emitting = true
 			velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2+get_tree().current_scene.playerSpeed)
-			print('hit')
 			decrease_life_points()
 			texture_progress_bar.connect("value_changed", healthbar_changed)
 	if (area.name == "ProjectileHurtBox" and area.get_parent().parried):
@@ -40,7 +39,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2)
 func decrease_life_points():
 	texture_progress_bar.value -= 1
-	print("youch")
 			
 
 func healthbar_changed(value : float) -> void:
@@ -57,7 +55,6 @@ func updateBehaviour() -> void:
 	else:
 		walkChance = 0.3
 	if roll < 0.1:
-		print("shoot")
 		var newProjectile = pProjectile.instantiate()
 		newProjectile.global_position = global_position
 		get_parent().add_child(newProjectile)
@@ -65,7 +62,6 @@ func updateBehaviour() -> void:
 	elif roll < walkChance:
 		if randf()<0.3:
 			dir*=-1
-		print("walk")
 		if playerDist < 650:
 			movementDir = (global_position-playerPos).normalized()
 		else:

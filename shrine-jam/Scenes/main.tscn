@@ -16,8 +16,8 @@ shader_parameter/radius = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kry3j"]
 shader = ExtResource("6_21xkr")
-shader_parameter/darkColor = Color(0, 0, 0, 1)
-shader_parameter/lightColor = Color(1, 1, 1, 1)
+shader_parameter/darkColor = Color(0.27622634, 0.1688197, 0.23947811, 1)
+shader_parameter/lightColor = Color(0.5519479, 0.45576358, 0.51774293, 1)
 
 [node name="Main" type="Node2D" unique_id=1040881665]
 script = ExtResource("1_jjvhh")

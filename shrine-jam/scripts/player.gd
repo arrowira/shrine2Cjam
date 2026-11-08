@@ -34,10 +34,14 @@ func _physics_process(delta: float) -> void:
 		if $SwordPivot.attack == 2:
 			dash((get_global_mouse_position()-global_position).normalized(), 10, 5)
 		$SwordPivot.swing()
+		$SFX/Slash.pitch_scale = randf_range(1.2, 1.5)
+		$SFX/Slash.volume_db = randf_range(-4, 0)
+		$SFX/Slash.play()
 	
 	if Input.is_action_just_pressed("block") and $SwordPivot.returning==false:
 		$SwordPivot.block()
 	if Input.is_action_just_pressed("dash") and isDashing == false:
+		$SFX/Dash.play()
 		dash(input,20,5)
 		
 	move_and_slide()
@@ -56,6 +60,7 @@ func _on_dash_timer_timeout() -> void:
 func _on_player_hit_box_area_entered(area: Area2D) -> void:
 	if area.name == "ProjectileHurtBox":
 		if $SwordPivot.isParrying:
+			$SFX/Parry.play()
 			$Camera2D.shake(5,5)
 			area.get_parent().parried = true
 			area.get_parent().speed *= 3

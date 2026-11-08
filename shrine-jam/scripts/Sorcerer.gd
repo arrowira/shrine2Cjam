@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var Blood = preload("res://Scenes/Blood.tscn")
 var state = "idle"
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 @onready var area_2d: Area2D = $Area2D
@@ -24,6 +25,12 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "SwordHurtBox":
 		if area.get_parent().get_parent().isSwinging:
+			var b = Blood.instantiate()
+			get_parent().add_child(b)
+			b.global_position = global_position
+			var D = global_position - get_parent().get_node("Player").global_position
+			b.global_rotation = D.angle() 
+			b.emitting = true
 			velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2+get_tree().current_scene.playerSpeed)
 			print('hit')
 			decrease_life_points()

@@ -168,6 +168,10 @@ stream = ExtResource("8_8erm5")
 volume_db = 3.888
 pitch_scale = 1.2
 
+[node name="Recovery" type="Timer" parent="." unique_id=1740276929]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="area_entered" from="SwordPivot/SwingPivot/SwordHurtBox" to="SwordPivot" method="_on_sword_hurt_box_area_entered"]
 [connection signal="timeout" from="SwordPivot/ComboTimer" to="SwordPivot" method="_on_combo_timer_timeout"]
@@ -176,3 +180,4 @@ pitch_scale = 1.2
 [connection signal="timeout" from="SwordPivot/BlockTimer" to="SwordPivot" method="_on_block_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="area_entered" from="PlayerHitBox" to="." method="_on_player_hit_box_area_entered"]
+[connection signal="timeout" from="Recovery" to="." method="_on_recovery_timeout"]

@@ -8,6 +8,8 @@ var movementDir = Vector2.ZERO
 var speed = 0 
 var aggro = false
 var coin = 1
+var inPlayer = false
+
 
 func _process(delta: float) -> void:
 	playerPos = get_tree().current_scene.playerPos
@@ -39,11 +41,25 @@ func _physics_process(delta: float) -> void:
 		speed = 20 * pow($AttackTimer.time_left/$AttackTimer.wait_time, 3)
 	if state == "retreat":
 		movementDir = -playerDir
+	if state == "parried":
+		speed = 20 * pow($ParriedTimer.time_left/$ParriedTimer.wait_time, 3)
+		
+		
 	if state != "attacking":
-		if state == "retreat" or state == "pursue" or state == "pounce":
+		if state == "retreat" or state == "pursue" or state == "pounce" or state == "walk":
 			$AnimationPlayer.play("walk")
 		if state == "idle":
 			$AnimationPlayer.play("idle")
+	else:
+		if inPlayer:
+			if get_tree().current_scene.get_node("Player").isParrying():
+				state = "parried"
+				movementDir= -playerDir
+				$ParriedTimer.start()
+			else:
+				get_tree().current_scene.get_node("Player").takeDamage()
+				get_tree().current_scene.get_node("Player").dash(playerDir,3,10)
+		
 	
 		
 		
@@ -58,7 +74,9 @@ func _on_mood_clock_timeout() -> void:
 		if mood < 0.4:
 			movementDir = Vector2(1,0) * coin
 			speed = 3
+			state = "walk"
 		elif mood < 0.6:
+			state = "idle"
 			speed = 0
 	else:
 		#aggro
@@ -85,3 +103,19 @@ func _on_attack_timer_timeout() -> void:
 	print("retreat")
 	state = "retreat"
 	speed = 3
+
+
+func _on_grunt_hurt_box_area_entered(area: Area2D) -> void:
+	if area.name == "PlayerHitBox":
+		inPlayer=true
+
+
+
+func _on_grunt_hurt_box_area_exited(area: Area2D) -> void:
+	if area.name == "PlayerHitBox":
+		inPlayer=false
+
+
+func _on_parried_timer_timeout() -> void:
+	state = "idle"
+	speed = 0

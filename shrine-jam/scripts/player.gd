@@ -6,6 +6,7 @@ var input
 var isDashing = false
 var dashSpeed = 0
 var dashDir = Vector2(0,0)
+var immune = false
 @onready var anim = $AnimationPlayer
 
 func _physics_process(delta: float) -> void:
@@ -60,17 +61,28 @@ func dash(dir: Vector2, distance: float, dSpeed: float):
 	
 func _on_dash_timer_timeout() -> void:
 	isDashing=false
+func isParrying():
+	return $SwordPivot.isParrying
 
+func takeDamage():
+	if !immune:
+		immune = true
+		$Recovery.start()
+		$Camera2D.shake(5,20)
+		get_parent().takeDamage()
 
 func _on_player_hit_box_area_entered(area: Area2D) -> void:
 	if area.name == "ProjectileHurtBox":
-		if $SwordPivot.isParrying:
+		if isParrying():
 			$SFX/Parry.play()
 			$Camera2D.shake(5,5)
 			area.get_parent().parried = true
 			area.get_parent().speed *= 3
 			area.get_parent().rotation = atan2(get_global_mouse_position().y-global_position.y,get_global_mouse_position().x-global_position.x)
 		else:
-			$Camera2D.shake(5,20)
-			get_parent().takeDamage()
 			area.get_parent().queue_free()
+			takeDamage()
+
+
+func _on_recovery_timeout() -> void:
+	immune = false

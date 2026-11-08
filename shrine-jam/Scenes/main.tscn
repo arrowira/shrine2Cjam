@@ -54,6 +54,3 @@ grow_vertical = 2
 
 [node name="Grunt" parent="." unique_id=952265716 instance=ExtResource("9_ynf5e")]
 position = Vector2(-957, 654)
-
-[node name="Grunt2" parent="." unique_id=1284085742 instance=ExtResource("9_ynf5e")]
-position = Vector2(-957, 654)

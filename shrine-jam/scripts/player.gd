@@ -10,6 +10,12 @@ var immune = false
 @onready var anim = $AnimationPlayer
 
 func _physics_process(delta: float) -> void:
+	var distance = pow(pow(global_position.x,2)+pow(global_position.y,2),0.5)
+	var radius = get_tree().current_scene.shrineRadius * 13000
+	if distance>radius:
+		
+		velocity += -(global_position).normalized()*500
+	
 	z_index = global_position.y
 	
 	input = Input.get_vector("left", "right", "up", "down")

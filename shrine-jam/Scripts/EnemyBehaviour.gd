@@ -162,10 +162,10 @@ func swordHit():
 	movementDir = -playerDir
 	preHitState = state
 	if state == "parried":
-		damage = 50
+		damage = 90
 		kbStrength = 10
 	else:
-		damage = 20
+		damage = 30
 		kbStrength = 5
 	health-=damage
 	state = "hit"

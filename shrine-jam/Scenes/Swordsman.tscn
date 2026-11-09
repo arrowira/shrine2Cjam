@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://bklulqrorriyx"]
+
+[ext_resource type="Script" uid="uid://dotcb43hwqyie" path="res://scripts/swordsman.gd" id="1_31fyo"]
+[ext_resource type="Texture2D" uid="uid://2qi1rl46rkna" path="res://Sprites/swordsman_skelly.webp" id="2_31fyo"]
+[ext_resource type="Texture2D" uid="uid://bwwgmwhfccrma" path="res://Sprites/small_enemy_shadow-export.png" id="3_1ftgk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]
+size = Vector2(98, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
+size = Vector2(174, 59.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jpaow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfdme"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3uy8"]
+radius = 65.03076
+
+[sub_resource type="Animation" id="Animation_31fyo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_8qoyw"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099842936, 0.20579872, 0.30360404, 0.39937174, 0.5012523, 0.6666667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_1ftgk"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20172349, 0.39733413, 0.59702003),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_wqyki"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099842936, 0.19561066, 0.2995288, 0.39529654, 0.49921468),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_njcxw"]
+_data = {
+&"RESET": SubResource("Animation_31fyo"),
+&"attack": SubResource("Animation_8qoyw"),
+&"idle": SubResource("Animation_1ftgk"),
+&"walk": SubResource("Animation_wqyki")
+}
+
+[node name="Swordsman" type="CharacterBody2D" unique_id=952265716]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_31fyo")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1981226892]
+texture_filter = 1
+position = Vector2(11.25, -15)
+scale = Vector2(5, 5)
+texture = ExtResource("2_31fyo")
+hframes = 8
+vframes = 3
+frame = 8
+
+[node name="Collider" type="Area2D" parent="." unique_id=1055274215]
+visible = false
+
+[node name="Box" type="CollisionShape2D" parent="Collider" unique_id=138379618]
+position = Vector2(-4.5, 0.5)
+shape = SubResource("RectangleShape2D_jjj3t")
+
+[node name="CCollider" type="CollisionShape2D" parent="." unique_id=361230111]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jjj3t")
+
+[node name="MoodClock" type="Timer" parent="." unique_id=271367783]
+wait_time = 0.5
+autostart = true
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=230837176]
+wait_time = 0.6
+one_shot = true
+
+[node name="Label" type="Label" parent="." unique_id=741633984]
+offset_left = -56.0
+offset_top = -97.0
+offset_right = -16.0
+offset_bottom = -74.0
+
+[node name="GruntHurtBox" type="Area2D" parent="." unique_id=1570542706]
+
+[node name="collider" type="CollisionShape2D" parent="GruntHurtBox" unique_id=241678350]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_k3uy8")
+
+[node name="ParriedTimer" type="Timer" parent="." unique_id=1015835721]
+wait_time = 0.8
+one_shot = true
+
+[node name="hp" type="ProgressBar" parent="." unique_id=1785138516]
+texture_filter = 1
+offset_left = -62.5
+offset_top = -98.75
+offset_right = 62.5
+offset_bottom = -90.75
+theme_override_styles/background = SubResource("StyleBoxEmpty_jpaow")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lfdme")
+value = 100.0
+show_percentage = false
+
+[node name="GruntHitBox" type="Area2D" parent="." unique_id=48080504]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GruntHitBox" unique_id=625739947]
+shape = SubResource("CircleShape2D_k3uy8")
+
+[node name="HitTimer" type="Timer" parent="." unique_id=1136815882]
+wait_time = 0.5
+one_shot = true
+
+[node name="PreattackTimer" type="Timer" parent="." unique_id=483375645]
+wait_time = 0.3
+one_shot = true
+
+[node name="PlayerAdEnemyShadow" type="Sprite2D" parent="." unique_id=1962825596]
+z_index = -1
+texture_filter = 1
+position = Vector2(5, 40)
+scale = Vector2(5, 5)
+texture = ExtResource("3_1ftgk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1907310767]
+libraries/ = SubResource("AnimationLibrary_njcxw")
+speed_scale = 0.8
+
+[connection signal="timeout" from="MoodClock" to="." method="_on_mood_clock_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="area_entered" from="GruntHurtBox" to="." method="_on_grunt_hurt_box_area_entered"]
+[connection signal="area_exited" from="GruntHurtBox" to="." method="_on_grunt_hurt_box_area_exited"]
+[connection signal="timeout" from="ParriedTimer" to="." method="_on_parried_timer_timeout"]
+[connection signal="area_entered" from="GruntHitBox" to="." method="_on_grunt_hit_box_area_entered"]
+[connection signal="area_exited" from="GruntHitBox" to="." method="_on_grunt_hit_box_area_exited"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="timeout" from="PreattackTimer" to="." method="_on_preattack_timer_timeout"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://de0avim7strj3" path="res://scripts/EnemyBehaviour.gd" id="1_jpaow"]
 [ext_resource type="Texture2D" uid="uid://bsrynimdx55to" path="res://Sprites/Zombie_spritesheet.png" id="2_jpaow"]
-[ext_resource type="Texture2D" uid="uid://bnpt1c7tel1jj" path="res://Sprites/player_ad_enemy_shadow.png" id="3_lfdme"]
+[ext_resource type="Texture2D" uid="uid://bwwgmwhfccrma" path="res://Sprites/small_enemy_shadow-export.png" id="3_lfdme"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]
 size = Vector2(98, 129)
@@ -155,7 +155,7 @@ one_shot = true
 [node name="PlayerAdEnemyShadow" type="Sprite2D" parent="." unique_id=1962825596]
 z_index = -1
 texture_filter = 1
-position = Vector2(5, 51.25)
+position = Vector2(5, 40)
 scale = Vector2(5, 5)
 texture = ExtResource("3_lfdme")
 

@@ -4,11 +4,10 @@
 [ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://scripts/GameManager.gd" id="1_jjvhh"]
 [ext_resource type="Shader" uid="uid://btwgxlt0404ch" path="res://shrine_border.gdshader" id="2_6bp64"]
 [ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="3_344ge"]
-[ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://bpn586u6aqxm5" path="res://scripts/HeartManager.gd" id="7_6bp64"]
-[ext_resource type="PackedScene" uid="uid://dplqg1l5w2uk8" path="res://Scenes/Grunt.tscn" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://bklulqrorriyx" path="res://Scenes/Swordsman.tscn" id="10_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://b1xbi084x1wo0" path="res://Sounds/EnemyHurt.wav" id="10_hptm8"]
 [ext_resource type="FontFile" uid="uid://bbmp7am434p0h" path="res://Daydream DEMO.otf" id="11_d1ilt"]
 
@@ -37,7 +36,7 @@ offset_bottom = 7139.0
 script = ExtResource("3_344ge")
 
 [node name="Player" parent="." unique_id=782907943 instance=ExtResource("1_jjgbg")]
-position = Vector2(39, 29)
+position = Vector2(453, -417)
 
 [node name="Shrine" parent="." unique_id=2017955441 instance=ExtResource("5_kry3j")]
 position = Vector2(-4, 25)
@@ -59,12 +58,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Grunt" parent="." unique_id=952265716 instance=ExtResource("9_ynf5e")]
-position = Vector2(-957, 654)
-
-[node name="Sorcerer" parent="." unique_id=1551394208 instance=ExtResource("4_jjvhh")]
-position = Vector2(-622, 177)
-
 [node name="SFX" type="Node2D" parent="." unique_id=1061498229]
 
 [node name="EnemyHit" type="AudioStreamPlayer2D" parent="SFX" unique_id=221204009]
@@ -85,3 +78,6 @@ theme_override_fonts/font = ExtResource("11_d1ilt")
 theme_override_font_sizes/font_size = 70
 text = "89"
 horizontal_alignment = 1
+
+[node name="Swordsman" parent="." unique_id=952265716 instance=ExtResource("10_d1ilt")]
+position = Vector2(569, -417)

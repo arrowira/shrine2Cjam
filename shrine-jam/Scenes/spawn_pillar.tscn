@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cm00e1kpgmvrp"]
+
+[ext_resource type="Script" uid="uid://ce0w4dpgunihh" path="res://scripts/spawn_pillar.gd" id="1_bth5x"]
+[ext_resource type="Shader" uid="uid://bcf34a281a8rf" path="res://pillar.gdshader" id="1_wsgva"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cdjj"]
+shader = ExtResource("1_wsgva")
+shader_parameter/thresh = 0.0
+
+[node name="SpawnPillar" type="Node2D" unique_id=443295182]
+script = ExtResource("1_bth5x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=406857503]
+material = SubResource("ShaderMaterial_1cdjj")
+offset_left = -60.0
+offset_top = -3801.0
+offset_right = 61.0
+offset_bottom = 73.0

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c4opucolbt2lg" path="res://scripts/Sorcerer.gd" id="1_wfckg"]
 [ext_resource type="Texture2D" uid="uid://bpwloimmk8obg" path="res://Sprites/archer_sprite_sheet.webp" id="2_5owyf"]
 [ext_resource type="Texture2D" uid="uid://bnpt1c7tel1jj" path="res://Sprites/player_ad_enemy_shadow.png" id="4_738o6"]
+[ext_resource type="PackedScene" uid="uid://cm00e1kpgmvrp" path="res://Scenes/spawn_pillar.tscn" id="4_veqcj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
 
@@ -141,6 +142,9 @@ vframes = 3
 [node name="Charge" type="Timer" parent="." unique_id=108781]
 wait_time = 0.32
 one_shot = true
+
+[node name="SpawnPillar" parent="." unique_id=443295182 instance=ExtResource("4_veqcj")]
+position = Vector2(-1, 29)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

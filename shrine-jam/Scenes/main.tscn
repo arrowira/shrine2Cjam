@@ -67,7 +67,7 @@ volume_db = 10.0
 stream = SubResource("AudioStreamWAV_hptm8")
 volume_db = 20.0
 
-[node name="RichTextLabel" type="Label" parent="." unique_id=1995875255]
+[node name="EnemyNumber" type="Label" parent="." unique_id=1995875255]
 texture_filter = 1
 offset_left = -138.0
 offset_top = -516.0
@@ -75,5 +75,5 @@ offset_right = 134.0
 offset_bottom = -397.0
 theme_override_fonts/font = ExtResource("11_d1ilt")
 theme_override_font_sizes/font_size = 70
-text = "89"
+text = "0"
 horizontal_alignment = 1

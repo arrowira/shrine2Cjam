@@ -134,9 +134,9 @@ func _on_mood_clock_timeout() -> void:
 
 
 func _on_attack_timer_timeout() -> void:
-	print("retreat")
-	state = "retreat"
-	speed = 3
+	if state != "parried":
+		state = "retreat"
+		speed = 3
 
 
 func _on_grunt_hurt_box_area_entered(area: Area2D) -> void:

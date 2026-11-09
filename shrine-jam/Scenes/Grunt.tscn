@@ -118,6 +118,7 @@ offset_left = -56.0
 offset_top = -97.0
 offset_right = -16.0
 offset_bottom = -74.0
+theme_override_font_sizes/font_size = 25
 
 [node name="GruntHurtBox" type="Area2D" parent="." unique_id=1570542706]
 
@@ -126,7 +127,7 @@ position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_k3uy8")
 
 [node name="ParriedTimer" type="Timer" parent="." unique_id=1015835721]
-wait_time = 0.8
+wait_time = 1.2
 one_shot = true
 
 [node name="hp" type="ProgressBar" parent="." unique_id=1785138516]

@@ -5,6 +5,7 @@ var state = "idle"
 @onready var area_2d: Area2D = $Area2D
 
 var pProjectile = preload("res://Scenes/Projectile.tscn")
+var pGhost = preload("res://Scenes/sorcerer_ghost.tscn")
 var playerPos
 var playerDist
 var movementDir = Vector2(0,0)
@@ -29,6 +30,9 @@ func _physics_process(delta: float) -> void:
 	position += movementDir*speed
 
 func die():
+	var ghost = pGhost.instantiate()
+	ghost.global_position = global_position
+	get_parent().add_child(ghost)
 	queue_free()
 
 func swordHit():

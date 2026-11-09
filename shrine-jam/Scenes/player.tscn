@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dko4ilpymbsdy" path="res://Sounds/floraphonic-metal-hit-64-193325.mp3" id="7_3smsa"]
 [ext_resource type="AudioStream" uid="uid://4k2rson8i2lr" path="res://Sounds/dragon-studio-whoosh-effect-382717 (1).mp3" id="8_8erm5"]
 [ext_resource type="AudioStream" uid="uid://p8cgdvn0ljbl" path="res://Sounds/floraphonic-swing-whoosh-5-198498 (1).mp3" id="9_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://bdnw7b2ui5pmf" path="res://Sprites/footstep-1.png.png" id="10_tx1dd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3uy8"]
 size = Vector2(55, 90)
@@ -73,6 +74,10 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgcy0"]
 size = Vector2(88, 114)
+
+[sub_resource type="Curve" id="Curve_tx1dd"]
+_data = [Vector2(0.09420289, 1), 0.0, 0.0, 0, 0, Vector2(0.847826, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Player" type="CharacterBody2D" unique_id=782907943]
 script = ExtResource("1_cvnsp")
@@ -171,6 +176,20 @@ pitch_scale = 1.2
 [node name="Recovery" type="Timer" parent="." unique_id=1740276929]
 wait_time = 0.3
 one_shot = true
+
+[node name="footstepper" type="CPUParticles2D" parent="." unique_id=1559342001]
+z_index = -1
+texture_filter = 1
+position = Vector2(8, 45)
+amount = 13
+texture = ExtResource("10_tx1dd")
+lifetime = 3.0
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector2(0, 0)
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_tx1dd")
 
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="area_entered" from="SwordPivot/SwingPivot/SwordHurtBox" to="SwordPivot" method="_on_sword_hurt_box_area_entered"]

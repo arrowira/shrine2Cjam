@@ -13,14 +13,18 @@ func _physics_process(delta: float) -> void:
 	z_index = global_position.y
 	
 	input = Input.get_vector("left", "right", "up", "down")
+	$footstepper.angle_max = atan2(input.x,input.y)
+	$footstepper.angle_min = atan2(input.x,input.y)
 	if velocity.x >= 0:
 		$SpritePivot.scale.x = 1
 	elif velocity.x <= 0:
 		$SpritePivot.scale.x = -1
 	
 	if velocity.length()> 300:
+		$footstepper.emitting=true
 		anim.play("walk")
 	else:
+		$footstepper.emitting=false
 		anim.play("idle")
 		
 	

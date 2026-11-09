@@ -138,6 +138,11 @@ texture = ExtResource("2_5owyf")
 hframes = 8
 vframes = 3
 
+[node name="Charge" type="Timer" parent="." unique_id=108781]
+wait_time = 0.32
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="BehaviourClock" to="." method="updateBehaviour"]
+[connection signal="timeout" from="Charge" to="." method="_on_charge_timeout"]

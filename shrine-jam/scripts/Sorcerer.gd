@@ -27,7 +27,8 @@ func _process(delta: float) -> void:
 	if speed != 0 and movementDir.length() != 0:
 		$AnimationPlayer.play("walk")
 	else:
-		$AnimationPlayer.play("idle")
+		if state != "shoot":
+			$AnimationPlayer.play("idle")
 		if playerPos.x-global_position.x > 0:
 			$SpritePivot.scale.x = -1
 		else:
@@ -84,10 +85,12 @@ func updateBehaviour() -> void:
 		walkChance = 0.8
 	else:
 		walkChance = 0.3
-	if roll < 0.1:
-		var newProjectile = pProjectile.instantiate()
-		newProjectile.global_position = global_position
-		get_parent().add_child(newProjectile)
+	if roll < 0.1 and state!= "shoot":
+		#shoot
+		state = "shoot"
+		$Charge.start()
+		$AnimationPlayer.play("shoot")
+		
 		
 	elif roll < walkChance:
 		if randf()<0.3:
@@ -102,3 +105,10 @@ func updateBehaviour() -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.name == "SwordHurtBox":
 		inSword=false
+
+
+func _on_charge_timeout() -> void:
+	var newProjectile = pProjectile.instantiate()
+	newProjectile.global_position = global_position
+	get_parent().add_child(newProjectile)
+	state = "idle"

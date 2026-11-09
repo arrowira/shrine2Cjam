@@ -6,7 +6,7 @@ func _physics_process(delta: float) -> void:
 	var dir = global_position.normalized()
 	var distance = pow(pow(global_position.x,2)+pow(global_position.y,2),0.5)
 	
-	$spritePivot/Rubberduck.scale.x=( (distance)/(distance+200) )* 0.1
+	$spritePivot/scalePivot.scale.y=( (distance)/(distance+200))
 	
 	$spritePivot.look_at(Vector2(0,0))
 	position -= dir * (t/10.0)

@@ -25,9 +25,9 @@ script = ExtResource("1_jjvhh")
 [node name="ShrineBorder" type="ColorRect" parent="." unique_id=120893510]
 material = SubResource("ShaderMaterial_k3uy8")
 offset_left = -7088.0
-offset_top = -6384.0
+offset_top = -7253.0
 offset_right = 7140.0
-offset_bottom = 6505.0
+offset_bottom = 7139.0
 script = ExtResource("3_344ge")
 
 [node name="Player" parent="." unique_id=782907943 instance=ExtResource("1_jjgbg")]

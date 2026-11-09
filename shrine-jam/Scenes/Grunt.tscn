@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dplqg1l5w2uk8"]
 
 [ext_resource type="Script" uid="uid://de0avim7strj3" path="res://scripts/EnemyBehaviour.gd" id="1_jpaow"]
-[ext_resource type="Texture2D" uid="uid://ivq7ye5gqsql" path="res://Sprites/Zombie_spritesheet.webp" id="2_jpaow"]
+[ext_resource type="Texture2D" uid="uid://bsrynimdx55to" path="res://Sprites/Zombie_spritesheet.png" id="2_jpaow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]
 size = Vector2(98, 129)
@@ -77,6 +77,7 @@ bg_color = Color(1, 1, 1, 1)
 radius = 65.03076
 
 [node name="Grunt" type="CharacterBody2D" unique_id=952265716]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_jpaow")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1981226892]

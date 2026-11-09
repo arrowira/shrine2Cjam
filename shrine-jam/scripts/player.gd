@@ -25,12 +25,13 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x <= 0:
 		$SpritePivot.scale.x = -1
 	
-	if velocity.length()> 300:
-		$footstepper.emitting=true
-		anim.play("walk")
-	else:
-		$footstepper.emitting=false
-		anim.play("idle")
+	if !isDashing:
+		if velocity.length()> 300:
+			$footstepper.emitting=true
+			anim.play("walk")
+		else:
+			$footstepper.emitting=false
+			anim.play("idle")
 		
 	
 	if isDashing:
@@ -57,6 +58,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("block") and $SwordPivot.returning==false:
 		$SwordPivot.block()
 	if Input.is_action_just_pressed("dash") and isDashing == false and $DashCD.time_left == 0:
+		anim.play('dash')
 		$DashCD.start()
 		$SFX/Dash.play()
 		dash(input,20,5)

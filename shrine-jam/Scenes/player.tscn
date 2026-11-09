@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0v0l1p4dt5s4"]
 
 [ext_resource type="Script" uid="uid://diiixf8bi1uk6" path="res://scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://bpybbximmap25" path="res://Sprites/player_sprite_sheet.webp" id="2_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://cdb3ol0ju3aj2" path="res://Sprites/playerfiverow.webp" id="2_tx1dd"]
 [ext_resource type="Script" uid="uid://c5supyk0lufkd" path="res://scripts/CameraBehaviour.gd" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://d0h6actid5wbk" path="res://scripts/sword.gd" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://dg3h3o0yqj33k" path="res://Sprites/monk-swordf.webp" id="5_fkybt"]
@@ -30,6 +30,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gymyn"]
+resource_name = "dash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.06666668, 0.099999994),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [52, 53, 54, 55]
 }
 
 [sub_resource type="Animation" id="Animation_fkybt"]
@@ -68,6 +83,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
 _data = {
 &"RESET": SubResource("Animation_x3wgy"),
+&"dash": SubResource("Animation_gymyn"),
 &"idle": SubResource("Animation_fkybt"),
 &"walk": SubResource("Animation_3smsa")
 }
@@ -91,7 +107,7 @@ position = Vector2(-7, -10)
 scale = Vector2(4, 4)
 texture = ExtResource("2_tx1dd")
 hframes = 13
-vframes = 4
+vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=938244452]
 position = Vector2(9.5, 9)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpybbximmap25"
-path="res://.godot/imported/player_sprite_sheet.webp-feb58c9fd12d087b92865852ba07c2fc.ctex"
+uid="uid://cdb3ol0ju3aj2"
+path="res://.godot/imported/playerfiverow.webp-da6e6d9fa04efb5495538d94400d256b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/player_sprite_sheet.webp"
-dest_files=["res://.godot/imported/player_sprite_sheet.webp-feb58c9fd12d087b92865852ba07c2fc.ctex"]
+source_file="res://Sprites/playerfiverow.webp"
+dest_files=["res://.godot/imported/playerfiverow.webp-da6e6d9fa04efb5495538d94400d256b.ctex"]
 
 [params]
 

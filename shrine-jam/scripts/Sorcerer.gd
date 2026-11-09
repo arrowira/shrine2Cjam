@@ -24,10 +24,16 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and inSword:
 		swordHit()
 	
-	if speed != 0:
+	if speed != 0 and movementDir.length() != 0:
 		$AnimationPlayer.play("walk")
 	else:
 		$AnimationPlayer.play("idle")
+		if playerPos.x-global_position.x > 0:
+			$SpritePivot.scale.x = -1
+		else:
+			$SpritePivot.scale.x = 1
+	
+		
 	
 	move_and_slide()
 	

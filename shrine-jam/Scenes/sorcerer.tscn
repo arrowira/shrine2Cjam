@@ -19,7 +19,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,7 +36,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,7 +52,7 @@ length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -69,7 +69,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("SpritePivot/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -92,14 +92,6 @@ script = ExtResource("1_wfckg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1924995863]
 shape = SubResource("RectangleShape2D_k3uy8")
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=972860875]
-texture_filter = 1
-position = Vector2(-4.500004, 3.500001)
-scale = Vector2(4, 4)
-texture = ExtResource("2_5owyf")
-hframes = 8
-vframes = 3
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1155897353]
 
@@ -134,6 +126,17 @@ texture = ExtResource("4_738o6")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=230855781]
 libraries/ = SubResource("AnimationLibrary_wwm23")
 speed_scale = 0.8
+
+[node name="SpritePivot" type="Node2D" parent="." unique_id=218328843]
+position = Vector2(0, -6)
+
+[node name="Sprite" type="Sprite2D" parent="SpritePivot" unique_id=972860875]
+texture_filter = 1
+position = Vector2(-12, 4)
+scale = Vector2(4, 4)
+texture = ExtResource("2_5owyf")
+hframes = 8
+vframes = 3
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

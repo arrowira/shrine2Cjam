@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://coibjt4tu8ywq" path="res://scripts/shrine.gd" id="1_31tbt"]
 [ext_resource type="Texture2D" uid="uid://btgxsm7rsaxiv" path="res://Sprites/shrine-Sheet (1).webp" id="1_sgxto"]
 [ext_resource type="Texture2D" uid="uid://dbcba22e42bdm" path="res://Sprites/shrine_shadow.webp" id="3_gl0vf"]
+[ext_resource type="AudioStream" uid="uid://b07a8r8b4td7a" path="res://Sounds/shrinesfx1.mp3" id="4_df5ks"]
 
 [sub_resource type="Animation" id="Animation_gl0vf"]
 length = 0.001
@@ -89,3 +90,7 @@ texture = ExtResource("3_gl0vf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=596164278]
 position = Vector2(4, -37)
 shape = SubResource("CircleShape2D_k3uy8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2083928333]
+stream = ExtResource("4_df5ks")
+volume_db = -5.0

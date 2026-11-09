@@ -36,6 +36,7 @@ func enemyKilled():
 	$EnemyNumber.text = str(currentEnemies)
 	if currentEnemies == 0:
 		#wave completed
+		$Shrine.activate()
 		wave += 1
 		$CanvasLayer/panel/WaveNum.text = str(wave)
 		shrineRadius += 0.005

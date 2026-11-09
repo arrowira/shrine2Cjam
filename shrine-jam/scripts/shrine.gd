@@ -5,3 +5,7 @@ extends Node2D
 func _ready() -> void:
 	anim.play("idle")
 	z_index = (global_position.y-80)
+
+func activate():
+	anim.play("active")
+	$AudioStreamPlayer.play()

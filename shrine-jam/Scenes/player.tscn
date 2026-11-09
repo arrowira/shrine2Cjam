@@ -196,6 +196,10 @@ scale_amount_curve = SubResource("Curve_tx1dd")
 wait_time = 0.15
 one_shot = true
 
+[node name="DashCD" type="Timer" parent="." unique_id=38517682]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="area_entered" from="SwordPivot/SwingPivot/SwordHurtBox" to="SwordPivot" method="_on_sword_hurt_box_area_entered"]
 [connection signal="timeout" from="SwordPivot/ComboTimer" to="SwordPivot" method="_on_combo_timer_timeout"]

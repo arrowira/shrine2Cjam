@@ -11,11 +11,8 @@ void fragment() {
 	if (underColor == vec4(0,0,0,1) ){
 		COLOR = darkColor;
 	}
-	else if (underColor == vec4(1,1,1,1)){
-		COLOR = lightColor;
-	}
 	else{
-		COLOR = underColor;
+		COLOR = lightColor;
 	}
 		
 }

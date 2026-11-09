@@ -76,6 +76,8 @@ func isParrying():
 
 func takeDamage():
 	if !immune:
+		get_tree().current_scene.get_node("SFX/PlayerHit").stop()
+		get_tree().current_scene.get_node("SFX/PlayerHit").play()
 		immune = true
 		$Recovery.start()
 		$Camera2D.shake(5,20)

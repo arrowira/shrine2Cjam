@@ -148,6 +148,8 @@ func _on_parried_timer_timeout() -> void:
 func swordHit():
 	var damage
 	var kbStrength
+	get_tree().current_scene.get_node("SFX/EnemyHit").stop()
+	get_tree().current_scene.get_node("SFX/EnemyHit").play()
 	movementDir = -playerDir
 	preHitState = state
 	if state == "parried":

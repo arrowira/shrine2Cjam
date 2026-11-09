@@ -1,14 +1,15 @@
-[gd_scene format=3 uid="uid://b5lq7xoo0djs7"]
+[gd_scene format=4 uid="uid://b5lq7xoo0djs7"]
 
 [ext_resource type="PackedScene" uid="uid://d0v0l1p4dt5s4" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://scripts/GameManager.gd" id="1_jjvhh"]
+[ext_resource type="Script" uid="uid://tu2dr1eagyqt" path="res://Scripts/GameManager.gd" id="1_jjvhh"]
 [ext_resource type="Shader" uid="uid://btwgxlt0404ch" path="res://shrine_border.gdshader" id="2_6bp64"]
-[ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="3_344ge"]
+[ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://Scripts/shrine_border.gd" id="3_344ge"]
 [ext_resource type="PackedScene" uid="uid://qi6rs36koad5" path="res://Scenes/sorcerer.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="6_21xkr"]
-[ext_resource type="Script" uid="uid://bpn586u6aqxm5" path="res://scripts/HeartManager.gd" id="7_6bp64"]
+[ext_resource type="Script" uid="uid://bpn586u6aqxm5" path="res://Scripts/HeartManager.gd" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://dplqg1l5w2uk8" path="res://Scenes/Grunt.tscn" id="9_ynf5e"]
+[ext_resource type="AudioStream" uid="uid://b1xbi084x1wo0" path="res://Sounds/EnemyHurt.wav" id="10_hptm8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k3uy8"]
 shader = ExtResource("2_6bp64")
@@ -18,6 +19,10 @@ shader_parameter/radius = 0.1
 shader = ExtResource("6_21xkr")
 shader_parameter/darkColor = Color(0.27622634, 0.1688197, 0.23947811, 1)
 shader_parameter/lightColor = Color(0.5519479, 0.45576358, 0.51774293, 1)
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_hptm8"]
+data = PackedByteArray("cW9hZgAACv8BAKxECv8EgAAAAAAAAAAAAAAAAOAAQADNyCA0SASmCo6KYBIAaaaa0ggNEgg140N87GUwU0wCCDHxsuPzV333PWXc753Myyg9yp1KUqBKRj5A3IG5AE6B8pg5uAoEgEFbp4wAwFUVUk+8JVSsssas0NE9JskgkEFcw0SA0GCmmj++su8b1lEpPdTqU7p6kSk0mSNyjKAZUzAlBBEoDRO6wgEgEgYXGEGNUSmCAQSmATU6ni6lll3loEEgEEEEEEe/hWQ0wQGiQUxJVhcqIcsZPeOU7jfdTxUylUqnumkydzRE8YO6JEqYMGVNNPeMEEQuU0wGjmSA07BIGViRRKaafxppokEFMok5dZZd5d983DsH11edzcIuwgPwthgkEgOMymA0Q0GmmE3jTMsqDCYTM7qeOVPdGUA54xKA0mQRKjYIlTTAlAJBMSokEEp7xgEyA0SN0QQQQbBIBIBBKYGBjJAJokAgggg291PrKJ99Zzy++8FgssNzKfH4fFeID4iiASASPZS2ql7ALjcsYDRDTffeEpmWVBg5RKDKlU90ZTAe8Z3REoIMNkEPUAkHdBo2AYymCCDvGDIIIIIjIBIBMgEgEESogggaiQCAQQCAQCBBBGJKYBBBwEreFpppppp+EwCCCmASmCMX33y+Hw+POG6z5r4lxqwyBYQB80V9ULBIDRIBIBKffW10skkEgNE2Z9RPruJdxkoTCYKYTBTBPdE7omMgxkEzvGCd4wQd4zIIO8YIIIO8NgggggiMEEEgQSASA1mA0xjAaJBBAIIIMEEEHeEggggaiU00QQCAQAAQQCCAQQCCABBAIIBBAIJgSASmAQQQRq1QKIBBTAIIPxfffD743O424RdSgLCLrD+sbjQN1QHzNED5ogGwlEAn80ACiOgAATBTTX1RAIIBkEpgEgHkEkNd5UwQ00SUwDZ3SqTO4CqMOgndE7ondEg5UwRKiQTvGDIJ3jAaaeqJMEgggjeMEEEwQQQQRGCCCB+qJAIBAKaIMgEHeEgggggaiAQCAU0QUw2QgCQgQSECAJCBBIQIJCAEEhAgkIEEhACCQgQSECCQCBBIQIJCBBIBAgkIEEhAggQgQSECCQgQBIQIJCBBIQIAkIEEhAgkIAQSECCQgQSEcEgEpgHSxoowNLlcFc3rLDKLQFhCNhAsKwodIoAdJwgwbCUQQDY0QDIBANjTRBTTNEEA2MAgEEEc0AAAAAnGgCHAIBBBBBBBFEgEEEEEAggGgU40CnGgUwjQKcaBTjQKcgE9EggkEEg50Xui94yDKjJD1AJBO8YIMkbxgkEEESwuiQQQSCCMwBqYJBIJBBBBIEEEEZppgEEISA00QCnGgQTjQARQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMEEEEEEHAAA=")
+format = 3
 
 [node name="Main" type="Node2D" unique_id=1040881665]
 script = ExtResource("1_jjvhh")
@@ -58,3 +63,13 @@ position = Vector2(-957, 654)
 
 [node name="Sorcerer" parent="." unique_id=1551394208 instance=ExtResource("4_jjvhh")]
 position = Vector2(-622, 177)
+
+[node name="SFX" type="Node2D" parent="." unique_id=1061498229]
+
+[node name="EnemyHit" type="AudioStreamPlayer2D" parent="SFX" unique_id=221204009]
+stream = ExtResource("10_hptm8")
+volume_db = 10.0
+
+[node name="PlayerHit" type="AudioStreamPlayer2D" parent="SFX" unique_id=1978517825]
+stream = SubResource("AudioStreamWAV_hptm8")
+volume_db = 20.0

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dplqg1l5w2uk8"]
 
-[ext_resource type="Script" uid="uid://de0avim7strj3" path="res://scripts/EnemyBehaviour.gd" id="1_jpaow"]
+[ext_resource type="Script" uid="uid://de0avim7strj3" path="res://Scripts/EnemyBehaviour.gd" id="1_jpaow"]
 [ext_resource type="Texture2D" uid="uid://bsrynimdx55to" path="res://Sprites/Zombie_spritesheet.png" id="2_jpaow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]

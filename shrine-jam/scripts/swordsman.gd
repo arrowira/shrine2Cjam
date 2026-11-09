@@ -63,9 +63,9 @@ func _physics_process(delta: float) -> void:
 	if state == "pounce":
 		movementDir = playerDir.orthogonal() * coin
 	if state == "pre attack":
-		speed = 0
+		speed = -1
 	if state == "attacking":
-		speed = 20 * pow($AttackTimer.time_left/$AttackTimer.wait_time, 2)
+		speed = 30 * pow($AttackTimer.time_left/$AttackTimer.wait_time, 4)
 	if state == "retreat":
 		movementDir = -playerDir
 	if state == "parried":
@@ -114,7 +114,7 @@ func _on_mood_clock_timeout() -> void:
 		#aggro
 		if state != "attacking":
 			if mood < 0.5:
-				if playerDist > 300:
+				if playerDist > 450:
 					#walk towards player
 					state = "pursue"
 					speed = 3
@@ -162,10 +162,10 @@ func swordHit():
 	movementDir = -playerDir
 	preHitState = state
 	if state == "parried":
-		damage = 90
-		kbStrength = 10
+		damage = 50
+		kbStrength = 5
 	else:
-		damage = 30
+		damage = 10
 		kbStrength = 5
 	health-=damage
 	state = "hit"

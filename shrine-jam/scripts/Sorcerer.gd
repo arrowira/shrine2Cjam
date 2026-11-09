@@ -24,6 +24,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and inSword:
 		swordHit()
 	
+	if speed != 0:
+		$AnimationPlayer.play("walk")
+	else:
+		$AnimationPlayer.play("idle")
+	
 	move_and_slide()
 	
 func _physics_process(delta: float) -> void:
@@ -46,7 +51,9 @@ func swordHit():
 	b.emitting = true
 	health -= 30
 	velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2+get_tree().current_scene.playerSpeed)
+	
 var inSword = false
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "SwordHurtBox":
 		if area.get_parent().get_parent().isSwinging:

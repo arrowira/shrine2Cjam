@@ -1,6 +1,22 @@
 [gd_scene format=3 uid="uid://bhvmhvul8n38a"]
 
 [ext_resource type="Script" uid="uid://bk7jadcceam5" path="res://control.gd" id="1_28flt"]
+[ext_resource type="FontFile" uid="uid://bbmp7am434p0h" path="res://Daydream DEMO.otf" id="2_1ehe0"]
+[ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="3_ce3w2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3uy8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n45e2"]
+shader = ExtResource("3_ce3w2")
+shader_parameter/darkColor = Color(0.27622634, 0.1688197, 0.23947811, 1)
+shader_parameter/lightColor = Color(0.5519479, 0.45576358, 0.51774293, 1)
 
 [node name="MainMenu" type="Control" unique_id=924485212]
 layout_mode = 3
@@ -15,35 +31,111 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=974467634]
+[node name="MainButtons" type="Control" parent="." unique_id=468252071]
+anchors_preset = 0
+offset_left = 737.0
+offset_top = 448.0
+offset_right = 777.0
+offset_bottom = 488.0
+
+[node name="Play" type="Button" parent="MainButtons" unique_id=874572196]
 layout_mode = 0
-offset_left = 288.09
-offset_top = 310.0
-offset_right = 1301.0898
-offset_bottom = 446.0
+offset_left = -122.0
+offset_top = -157.0
+offset_right = 99.0
+offset_bottom = -59.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
+text = "PLAY"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1273787712]
-layout_mode = 2
+[node name="Settings" type="Button" parent="MainButtons" unique_id=405962588]
+layout_mode = 0
+offset_left = -197.0
+offset_top = -55.0
+offset_right = 180.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
+text = "Settings
+"
 
-[node name="new" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1555307429]
-layout_mode = 2
-text = "New Game"
-
-[node name="rules" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2010009545]
-layout_mode = 2
+[node name="HTP" type="Button" parent="MainButtons" unique_id=1877602152]
+layout_mode = 0
+offset_left = -236.0
+offset_top = 49.0
+offset_right = 230.0
+offset_bottom = 147.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
 text = "How To Play
 "
 
-[node name="options" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1911506156]
-layout_mode = 2
-text = "Options
-"
+[node name="back" type="Button" parent="MainButtons" unique_id=1282290003]
+layout_mode = 0
+offset_left = 1148.0
+offset_top = -373.0
+offset_right = 1237.0
+offset_bottom = -293.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
+text = "<--"
 
-[node name="quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1024914079]
-layout_mode = 2
-text = "Quit Game"
+[node name="back2" type="Button" parent="MainButtons" unique_id=656341696]
+layout_mode = 0
+offset_left = -672.0
+offset_top = 749.0
+offset_right = -583.0
+offset_bottom = 829.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
+text = "<--"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/new" to="." method="_on_new_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/rules" to="." method="_on_rules_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[node name="CamMov" type="Node2D" parent="." unique_id=417744798]
+position = Vector2(733, 437)
+
+[node name="Camera2D" type="Camera2D" parent="CamMov" unique_id=767997375]
+position_smoothing_enabled = true
+
+[node name="MainPos" type="Node2D" parent="." unique_id=105169765]
+position = Vector2(744, 463)
+
+[node name="SettingsPos" type="Node2D" parent="." unique_id=1918931939]
+position = Vector2(2539, 463)
+
+[node name="HTPPos" type="Node2D" parent="." unique_id=160225650]
+position = Vector2(744, 1541)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1344625558]
+material = SubResource("ShaderMaterial_n45e2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -777.0
+offset_top = -345.0
+offset_right = 3601.0
+offset_bottom = 1678.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainButtons/HTP" to="." method="_on_htp_pressed"]
+[connection signal="pressed" from="MainButtons/back" to="." method="_on_back_2_pressed"]
+[connection signal="pressed" from="MainButtons/back2" to="." method="_on_back_2_pressed"]

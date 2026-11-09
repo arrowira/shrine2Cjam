@@ -14,6 +14,7 @@ var dead = false
 var inSword = false
 var preHitState 
 var pGhost = preload("res://Scenes/grunt_ghost.tscn")
+var canDamage = true
 
 
 func _process(delta: float) -> void:
@@ -80,14 +81,16 @@ func _physics_process(delta: float) -> void:
 			$AnimationPlayer.play("idle")
 	else:
 		if inPlayer:
-			if get_tree().current_scene.get_node("Player").isParrying():
+			if get_tree().current_scene.get_node("Player").isParrying() and canDamage:
 				state = "parried"
 				movementDir= -playerDir
 				health -= 10
 				$ParriedTimer.start()
+				canDamage = false
 			else:
 				get_tree().current_scene.get_node("Player").takeDamage()
 				get_tree().current_scene.get_node("Player").dash(playerDir,3,10)
+				canDamage = false
 		
 	
 		
@@ -117,8 +120,9 @@ func _on_mood_clock_timeout() -> void:
 					speed = 3
 				else:
 					state = "pounce"
+					canDamage = true
 					speed = 2
-			elif mood < 0.7:
+			elif mood < 0.8:
 				if state == "pounce":
 					#attack
 					state = "pre attack"

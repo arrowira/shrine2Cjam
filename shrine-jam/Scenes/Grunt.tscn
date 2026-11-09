@@ -155,7 +155,7 @@ one_shot = true
 [node name="PlayerAdEnemyShadow" type="Sprite2D" parent="." unique_id=1962825596]
 z_index = -1
 texture_filter = 1
-position = Vector2(4.9999995, 51.25)
+position = Vector2(5, 51.25)
 scale = Vector2(5, 5)
 texture = ExtResource("3_lfdme")
 

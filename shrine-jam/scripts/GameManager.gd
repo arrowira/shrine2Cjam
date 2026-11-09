@@ -46,6 +46,9 @@ func enemyKilled():
 		raiseFrequencies()
 		print(spawnFrequencies)
 		
+func game_over():
+	$Player.die()
+	
 func raiseFrequencies():
 	if spawnFrequencies[0]>=0:
 		if randf()<0.5:

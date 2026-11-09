@@ -7,9 +7,15 @@ var isDashing = false
 var dashSpeed = 0
 var dashDir = Vector2(0,0)
 var immune = false
+var dead = false
 @onready var anim = $AnimationPlayer
 
+func die():
+	anim.play("death")
+	dead=true
 func _physics_process(delta: float) -> void:
+	if dead:
+		return
 	var distance = pow(pow(global_position.x,2)+pow(global_position.y,2),0.5)
 	var radius = get_tree().current_scene.shrineRadius * 13000
 	if distance>radius:
@@ -78,7 +84,7 @@ func isParrying():
 	return $SwordPivot.isParrying
 
 func takeDamage():
-	if !immune:
+	if !immune and !dead:
 		get_tree().current_scene.get_node("SFX/PlayerHit").stop()
 		get_tree().current_scene.get_node("SFX/PlayerHit").play()
 		immune = true

@@ -19,6 +19,7 @@ func takeDamage():
 	health -= 1
 	flipHeart(health)
 	if health == 0:
+		get_tree().current_scene.game_over()
 		print("player dead")
 		
 		

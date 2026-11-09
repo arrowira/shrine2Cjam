@@ -12,6 +12,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if get_parent().dead: return
 	if isSwinging:
 		$SwingPivot/SwordHurtBox.visible = true
 	else:

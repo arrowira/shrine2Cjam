@@ -112,7 +112,7 @@ func _on_mood_clock_timeout() -> void:
 			speed = 0
 	else:
 		#aggro
-		if state != "attacking":
+		if state != "attacking" and state != "parried":
 			if mood < 0.5:
 				if playerDist > 300:
 					#walk towards player

@@ -93,7 +93,9 @@ func _on_player_hit_box_area_entered(area: Area2D) -> void:
 		else:
 			area.get_parent().queue_free()
 			takeDamage()
-
+	if area.name == "GruntHurtBox" or area.name == "SwordsmanHurtBox":
+		if isParrying():
+			$SFX/Parry.play()
 
 func _on_recovery_timeout() -> void:
 	immune = false

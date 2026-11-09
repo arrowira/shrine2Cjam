@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	if state == "retreat":
 		movementDir = -playerDir
 	if state == "parried":
-		speed = 20 * pow($ParriedTimer.time_left/$ParriedTimer.wait_time, 3)
+		speed = 5 * pow($ParriedTimer.time_left/$ParriedTimer.wait_time, 3)
 	if state == "hit":
 		speed *= 0.9
 		
@@ -112,7 +112,7 @@ func _on_mood_clock_timeout() -> void:
 			speed = 0
 	else:
 		#aggro
-		if state != "attacking":
+		if state != "attacking" and state != "parried":
 			if mood < 0.5:
 				if playerDist > 450:
 					#walk towards player

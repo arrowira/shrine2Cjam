@@ -128,15 +128,16 @@ offset_left = -56.0
 offset_top = -97.0
 offset_right = -16.0
 offset_bottom = -74.0
+theme_override_font_sizes/font_size = 25
 
-[node name="GruntHurtBox" type="Area2D" parent="." unique_id=1570542706]
+[node name="SwordsmanHurtBox" type="Area2D" parent="." unique_id=1570542706]
 
-[node name="collider" type="CollisionShape2D" parent="GruntHurtBox" unique_id=241678350]
+[node name="collider" type="CollisionShape2D" parent="SwordsmanHurtBox" unique_id=241678350]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_k3uy8")
 
 [node name="ParriedTimer" type="Timer" parent="." unique_id=1015835721]
-wait_time = 0.8
+wait_time = 1.5
 one_shot = true
 
 [node name="hp" type="ProgressBar" parent="." unique_id=1785138516]
@@ -175,8 +176,8 @@ libraries/ = SubResource("AnimationLibrary_njcxw")
 
 [connection signal="timeout" from="MoodClock" to="." method="_on_mood_clock_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
-[connection signal="area_entered" from="GruntHurtBox" to="." method="_on_grunt_hurt_box_area_entered"]
-[connection signal="area_exited" from="GruntHurtBox" to="." method="_on_grunt_hurt_box_area_exited"]
+[connection signal="area_entered" from="SwordsmanHurtBox" to="." method="_on_grunt_hurt_box_area_entered"]
+[connection signal="area_exited" from="SwordsmanHurtBox" to="." method="_on_grunt_hurt_box_area_exited"]
 [connection signal="timeout" from="ParriedTimer" to="." method="_on_parried_timer_timeout"]
 [connection signal="area_entered" from="GruntHitBox" to="." method="_on_grunt_hit_box_area_entered"]
 [connection signal="area_exited" from="GruntHitBox" to="." method="_on_grunt_hit_box_area_exited"]

@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		velocity += input * speed
 		velocity *= 0.8
 	
-	if Input.is_action_just_pressed("attack") and ($SwordPivot/ReturnTimer.time_left < 0.1 or $SwordPivot.returning == false) and $SwordPivot.attack!=3:
+	if Input.is_action_just_pressed("attack") and ($SwordPivot/ReturnTimer.time_left < 0.1 or $SwordPivot.returning == false) and $SwordPivot.attack!=3 and $SwingTimer.time_left==0:
 		if $SwordPivot.attack == 2:
 			dash((get_global_mouse_position()-global_position).normalized(), 10, 5)
 			#$SFX/Slash.pitch_scale = randf_range(0.7, 1.1)
@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 			$SFX/Slash.volume_db = randf_range(-4, 0)
 			$SFX/Slash.play()
 		$SwordPivot.swing()
+		$SwingTimer.start()
 	
 	if Input.is_action_just_pressed("block") and $SwordPivot.returning==false:
 		$SwordPivot.block()

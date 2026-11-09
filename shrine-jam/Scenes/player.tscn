@@ -138,6 +138,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="BlockTimer" type="Timer" parent="SwordPivot" unique_id=1952383318]
+wait_time = 0.3
 one_shot = true
 
 [node name="DashTimer" type="Timer" parent="." unique_id=104270541]
@@ -190,6 +191,10 @@ gravity = Vector2(0, 0)
 scale_amount_min = 3.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_tx1dd")
+
+[node name="SwingTimer" type="Timer" parent="." unique_id=1761716492]
+wait_time = 0.15
+one_shot = true
 
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="area_entered" from="SwordPivot/SwingPivot/SwordHurtBox" to="SwordPivot" method="_on_sword_hurt_box_area_entered"]

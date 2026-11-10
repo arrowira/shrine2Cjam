@@ -162,7 +162,7 @@ func swordHit():
 	var b = Blood.instantiate()
 	get_tree().current_scene.get_node("SFX/EnemyHit").stop()
 	get_tree().current_scene.get_node("SFX/EnemyHit").play()
-	get_parent().add_child(b)
+	add_child(b)
 	b.global_position = global_position
 	var D = global_position - get_parent().get_node("Player").global_position
 	b.global_rotation = D.angle() 

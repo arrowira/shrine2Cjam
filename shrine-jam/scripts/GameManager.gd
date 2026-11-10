@@ -6,6 +6,7 @@ var spacialRadius = 0.05*13000
 var pGrunt = preload("res://Scenes/Grunt.tscn")
 var pArcher = preload("res://Scenes/sorcerer.tscn")
 var pSkelly = preload("res://Scenes/Swordsman.tscn")
+var pHeart = preload("res://Scenes/ConsumableHeart.tscn")
 
 var wave = 0
 var waveEnemyAmt = 1
@@ -50,11 +51,18 @@ func enemyKilled():
 	$EnemyNumber.text = str(currentEnemies)
 	if currentEnemies == 0:
 		#wave completed
+		$CanvasLayer/panel/WavesTillNum.text = str(3-wave%3)
+		if randf()<heartChance:
+			var heart = pHeart.instantiate()
+			heart.global_position = Vector2.ZERO
+			add_child(heart)
+		if wave % 3 == 0 and wave != 0:
+			$CanvasLayer/Upgrades.createUpgrades()
 		$Shrine.activate()
 		wave += 1
 		$CanvasLayer/panel/WaveNum.text = str(wave)
 		shrineRadius += 0.005
-		waveEnemyAmt = 1 + int((wave+2)/3)
+		waveEnemyAmt = 1 + int((wave+1)/2)
 		currentEnemies = waveEnemyAmt
 		buildWave(waveEnemyAmt)
 		raiseFrequencies()

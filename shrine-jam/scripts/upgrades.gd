@@ -1,8 +1,8 @@
 extends Control
 
-func _ready() -> void:
-	createUpgrades()
 func createUpgrades():
+	visible=true
+	Engine.time_scale = 0.05
 	$Card.initializeID(generateCardID())
 	$Card2.initializeID(generateCardID())
 func generateCardID():

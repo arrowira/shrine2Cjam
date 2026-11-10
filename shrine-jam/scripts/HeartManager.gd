@@ -10,7 +10,7 @@ var health = 0
 func addHeart():
 	var heart
 	heart=pHeart.instantiate()
-	heart.position = Vector2(len(hearts)*50 + 40, 21)
+	heart.position = Vector2(len(hearts)*40 + 40, 21)
 	hearts.append(heart)
 	heal()
 	add_child(heart)

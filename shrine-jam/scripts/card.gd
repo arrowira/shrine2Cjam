@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 			5:
 				main.heartChance += 0.1
 		$"..".visible=false
+		Engine.time_scale = 1
 				
 
 func initializeID(num):

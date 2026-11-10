@@ -119,6 +119,7 @@ position = Vector2(-4, 25)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752143104]
 
 [node name="Upgrades" type="Control" parent="CanvasLayer" unique_id=217073512]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -427,9 +428,9 @@ text = "RETURN"
 [node name="HeartContainer" type="Control" parent="CanvasLayer" unique_id=788841365]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 47.0
+offset_top = 44.0
 offset_right = 40.0
-offset_bottom = 87.0
+offset_bottom = 84.0
 script = ExtResource("7_6bp64")
 
 [node name="ColorApplication" type="ColorRect" parent="CanvasLayer" unique_id=1829487053]
@@ -445,8 +446,8 @@ mouse_filter = 2
 
 [node name="panel" type="ColorRect" parent="CanvasLayer" unique_id=245014206]
 z_index = -1
-offset_right = 229.0
-offset_bottom = 93.0
+offset_right = 332.0
+offset_bottom = 166.0
 color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/panel" unique_id=883898542]
@@ -457,6 +458,17 @@ offset_bottom = 76.0
 theme_override_fonts/normal_font = ExtResource("8_6iyac")
 theme_override_font_sizes/normal_font_size = 30
 text = "WAVE
+"
+
+[node name="tillNextUpgrade" type="RichTextLabel" parent="CanvasLayer/panel" unique_id=1438739354]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 99.0
+offset_right = 344.0
+offset_bottom = 175.0
+theme_override_fonts/normal_font = ExtResource("8_6iyac")
+theme_override_font_sizes/normal_font_size = 20
+text = "WAVES Till next upgrade
 "
 
 [node name="WaveNum" type="RichTextLabel" parent="CanvasLayer/panel" unique_id=2038831686]
@@ -470,11 +482,29 @@ theme_override_font_sizes/normal_font_size = 30
 text = "0
 "
 
+[node name="WavesTillNum" type="RichTextLabel" parent="CanvasLayer/panel" unique_id=231247038]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 99.0
+offset_right = 168.0
+offset_bottom = 175.0
+theme_override_fonts/normal_font = ExtResource("8_6iyac")
+theme_override_font_sizes/normal_font_size = 40
+text = "0
+"
+
 [node name="panel2" type="ColorRect" parent="CanvasLayer/panel" unique_id=999000394]
 z_index = -1
 layout_mode = 0
-offset_right = 235.0
-offset_bottom = 99.0
+offset_right = 338.0
+offset_bottom = 171.0
+
+[node name="panel3" type="ColorRect" parent="CanvasLayer/panel" unique_id=1934160419]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 87.0
+offset_right = 339.0
+offset_bottom = 94.0
 
 [node name="SFX" type="Node2D" parent="." unique_id=1061498229]
 

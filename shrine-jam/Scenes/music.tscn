@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://p7bjk313qbne"]
 
 [ext_resource type="AudioStream" uid="uid://csaar5xsk2mek" path="res://Sounds/ShrineMusic.mp3" id="1_fbmny"]
+[ext_resource type="Script" uid="uid://ea88jr8vnnvr" path="res://scripts/music.gd" id="1_qxpp0"]
 
 [node name="Music" type="Node2D" unique_id=672053551]
+script = ExtResource("1_qxpp0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=392725929]
 stream = ExtResource("1_fbmny")

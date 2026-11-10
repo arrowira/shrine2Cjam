@@ -15,6 +15,8 @@ func die():
 	dead=true
 func _physics_process(delta: float) -> void:
 	if dead:
+		if Engine.time_scale > 0.01:
+			Engine.time_scale -= 0.002
 		return
 	var distance = pow(pow(global_position.x,2)+pow(global_position.y,2),0.5)
 	var radius = get_tree().current_scene.shrineRadius * 13000

@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 		position += -(global_position).normalized()*500
 	
 	$Label.text = state
-	position += movementDir*speed
+	position += movementDir*speed*Engine.time_scale
 	if state == "pursue":
 		movementDir = playerDir
 	if state == "pounce":

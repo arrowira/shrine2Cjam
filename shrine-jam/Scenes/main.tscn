@@ -15,6 +15,9 @@
 [ext_resource type="FontFile" uid="uid://26y8ayijusb5" path="res://PixelOperator.ttf" id="11_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://db3gu345r658o" path="res://Sounds/blip.mp3" id="12_6iyac"]
 [ext_resource type="PackedScene" uid="uid://byfydu5n1kd37" path="res://Scenes/Blood.tscn" id="13_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://3ommiwgxxbue" path="res://Scenes/ConsumableHeart.tscn" id="14_jkdf5"]
+[ext_resource type="AudioStream" uid="uid://cvtvejkfaagaq" path="res://Sounds/upgradeSFX.mp3" id="15_h1bgf"]
+[ext_resource type="AudioStream" uid="uid://fyo4cnuxgie1" path="res://Sounds/speedRingBonus.wav" id="16_b3802"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k3uy8"]
 shader = ExtResource("2_6bp64")
@@ -580,6 +583,14 @@ volume_db = 20.0
 stream = ExtResource("12_6iyac")
 pitch_scale = 2.0
 
+[node name="upgrade" type="AudioStreamPlayer" parent="SFX" unique_id=889746167]
+stream = ExtResource("15_h1bgf")
+
+[node name="heal" type="AudioStreamPlayer" parent="SFX" unique_id=289265726]
+stream = ExtResource("16_b3802")
+volume_db = 3.0
+pitch_scale = 1.5
+
 [node name="EnemyNumber" type="Label" parent="." unique_id=1995875255]
 texture_filter = 1
 offset_left = -138.0
@@ -602,6 +613,9 @@ one_shot = true
 
 [node name="Blood" parent="." unique_id=691926786 instance=ExtResource("13_fdnlq")]
 position = Vector2(4279, 4556)
+
+[node name="Heart" parent="." unique_id=648535471 instance=ExtResource("14_jkdf5")]
+position = Vector2(174, 396)
 
 [connection signal="mouse_entered" from="CanvasLayer/Upgrades/Card/ColorRect" to="CanvasLayer/Upgrades/Card" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Upgrades/Card/ColorRect" to="CanvasLayer/Upgrades/Card" method="_on_color_rect_mouse_exited"]

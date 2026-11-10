@@ -135,6 +135,7 @@ func _on_death_timeout() -> void:
 
 func heal():
 	$CanvasLayer/HeartContainer.heal()
+	$SFX/heal.play()
 func addHeart():
 	$CanvasLayer/HeartContainer.addHeart()
 

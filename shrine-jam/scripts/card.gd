@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 			5:
 				main.heartChance += 0.1
 		$"..".visible=false
+		$"../../../SFX/upgrade".play()
 		Engine.time_scale = 1
 				
 

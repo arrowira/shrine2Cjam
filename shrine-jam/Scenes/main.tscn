@@ -52,6 +52,7 @@ position = Vector2(-4, 25)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752143104]
 
 [node name="DeathMenu" type="Control" parent="CanvasLayer" unique_id=1447108774]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

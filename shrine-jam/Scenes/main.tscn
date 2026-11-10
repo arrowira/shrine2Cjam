@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://26y8ayijusb5" path="res://PixelOperator.ttf" id="11_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://db3gu345r658o" path="res://Sounds/blip.mp3" id="12_6iyac"]
 [ext_resource type="PackedScene" uid="uid://byfydu5n1kd37" path="res://Scenes/Blood.tscn" id="13_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://3ommiwgxxbue" path="res://Scenes/ConsumableHeart.tscn" id="14_jkdf5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k3uy8"]
 shader = ExtResource("2_6bp64")
@@ -387,6 +388,9 @@ one_shot = true
 
 [node name="Blood" parent="." unique_id=691926786 instance=ExtResource("13_fdnlq")]
 position = Vector2(4279, 4556)
+
+[node name="Heart" parent="." unique_id=648535471 instance=ExtResource("14_jkdf5")]
+position = Vector2(560, -222)
 
 [connection signal="pressed" from="CanvasLayer/Tutorials/tut1/Play" to="CanvasLayer/Tutorials/tut1" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Tutorials/tut2/Play" to="CanvasLayer/Tutorials/tut2" method="_on_play_pressed"]

@@ -122,7 +122,8 @@ func spawnEnemy(type):
 func _on_death_timeout() -> void:
 	$CanvasLayer/DeathMenu.visible = true
 
-
+func heal():
+	$CanvasLayer/HeartContainer.heal()
 
 
 func _on_play_pressed() -> void:

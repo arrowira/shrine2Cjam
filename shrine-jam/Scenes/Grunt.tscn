@@ -164,6 +164,10 @@ texture = ExtResource("3_lfdme")
 [node name="SpawnPillar" parent="." unique_id=443295182 instance=ExtResource("4_nwxbd")]
 position = Vector2(0, 3.7499995)
 
+[node name="HitCD" type="Timer" parent="." unique_id=835700303]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="MoodClock" to="." method="_on_mood_clock_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="area_entered" from="GruntHurtBox" to="." method="_on_grunt_hurt_box_area_entered"]
@@ -173,3 +177,4 @@ position = Vector2(0, 3.7499995)
 [connection signal="area_exited" from="GruntHitBox" to="." method="_on_grunt_hit_box_area_exited"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
 [connection signal="timeout" from="PreattackTimer" to="." method="_on_preattack_timer_timeout"]
+[connection signal="timeout" from="HitCD" to="." method="_on_hit_cd_timeout"]

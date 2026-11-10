@@ -159,31 +159,34 @@ func _on_grunt_hurt_box_area_exited(area: Area2D) -> void:
 func _on_parried_timer_timeout() -> void:
 	state = "idle"
 	speed = 0
-
+var hitable = true
 func swordHit():
-	var damage
-	var kbStrength
-	var b = Blood.instantiate()
-	get_tree().current_scene.get_node("SFX/EnemyHit").stop()
-	get_tree().current_scene.get_node("SFX/EnemyHit").play()
-	add_child(b)
-	b.global_position = global_position
-	var D = global_position - get_parent().get_node("Player").global_position
-	b.global_rotation = D.angle() 
-	b.emitting = true
-	get_tree().current_scene.get_node("SFX/EnemyHit").stop()
-	get_tree().current_scene.get_node("SFX/EnemyHit").play()
-	movementDir = -playerDir
-	preHitState = state
-	if state == "parried":
-		damage = 90
-		kbStrength = 10
-	else:
-		damage = 30
-		kbStrength = 5
-	health-=damage
-	state = "hit"
-	speed = kbStrength * 3
+	if hitable:
+		hitable = false
+		$HitCD.start()
+		var damage
+		var kbStrength
+		var b = Blood.instantiate()
+		get_tree().current_scene.get_node("SFX/EnemyHit").stop()
+		get_tree().current_scene.get_node("SFX/EnemyHit").play()
+		add_child(b)
+		b.global_position = global_position
+		var D = global_position - get_parent().get_node("Player").global_position
+		b.global_rotation = D.angle() 
+		b.emitting = true
+		get_tree().current_scene.get_node("SFX/EnemyHit").stop()
+		get_tree().current_scene.get_node("SFX/EnemyHit").play()
+		movementDir = -playerDir
+		preHitState = state
+		if state == "parried":
+			damage = 90
+			kbStrength = 10
+		else:
+			damage = 30
+			kbStrength = 5
+		health-=damage
+		state = "hit"
+		speed = kbStrength * 3
 	
 	
 
@@ -209,3 +212,7 @@ func _on_preattack_timer_timeout() -> void:
 	state = "attacking"
 	$AttackTimer.start()
 	movementDir=playerDir
+
+
+func _on_hit_cd_timeout() -> void:
+	hitable = true

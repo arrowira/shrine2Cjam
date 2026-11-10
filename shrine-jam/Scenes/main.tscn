@@ -27,12 +27,73 @@ corner_detail = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kry3j"]
 shader = ExtResource("6_21xkr")
-shader_parameter/darkColor = Color(0.27622634, 0.1688197, 0.23947811, 1)
-shader_parameter/lightColor = Color(0.5519479, 0.45576358, 0.51774293, 1)
+shader_parameter/darkColor = Color(0.24881938, 0.13552612, 0.4011485, 1)
+shader_parameter/lightColor = Color(0.5408741, 0.42956302, 0.6713791, 1)
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_hptm8"]
 data = PackedByteArray("cW9hZgAACv8BAKxECv8EgAAAAAAAAAAAAAAAAOAAQADNyCA0SASmCo6KYBIAaaaa0ggNEgg140N87GUwU0wCCDHxsuPzV333PWXc753Myyg9yp1KUqBKRj5A3IG5AE6B8pg5uAoEgEFbp4wAwFUVUk+8JVSsssas0NE9JskgkEFcw0SA0GCmmj++su8b1lEpPdTqU7p6kSk0mSNyjKAZUzAlBBEoDRO6wgEgEgYXGEGNUSmCAQSmATU6ni6lll3loEEgEEEEEEe/hWQ0wQGiQUxJVhcqIcsZPeOU7jfdTxUylUqnumkydzRE8YO6JEqYMGVNNPeMEEQuU0wGjmSA07BIGViRRKaafxppokEFMok5dZZd5d983DsH11edzcIuwgPwthgkEgOMymA0Q0GmmE3jTMsqDCYTM7qeOVPdGUA54xKA0mQRKjYIlTTAlAJBMSokEEp7xgEyA0SN0QQQQbBIBIBBKYGBjJAJokAgggg291PrKJ99Zzy++8FgssNzKfH4fFeID4iiASASPZS2ql7ALjcsYDRDTffeEpmWVBg5RKDKlU90ZTAe8Z3REoIMNkEPUAkHdBo2AYymCCDvGDIIIIIjIBIBMgEgEESogggaiQCAQQCAQCBBBGJKYBBBwEreFpppppp+EwCCCmASmCMX33y+Hw+POG6z5r4lxqwyBYQB80V9ULBIDRIBIBKffW10skkEgNE2Z9RPruJdxkoTCYKYTBTBPdE7omMgxkEzvGCd4wQd4zIIO8YIIIO8NgggggiMEEEgQSASA1mA0xjAaJBBAIIIMEEEHeEggggaiU00QQCAQAAQQCCAQQCCABBAIIBBAIJgSASmAQQQRq1QKIBBTAIIPxfffD743O424RdSgLCLrD+sbjQN1QHzNED5ogGwlEAn80ACiOgAATBTTX1RAIIBkEpgEgHkEkNd5UwQ00SUwDZ3SqTO4CqMOgndE7ondEg5UwRKiQTvGDIJ3jAaaeqJMEgggjeMEEEwQQQQRGCCCB+qJAIBAKaIMgEHeEgggggaiAQCAU0QUw2QgCQgQSECAJCBBIQIJCAEEhAgkIEEhACCQgQSECCQCBBIQIJCBBIBAgkIEEhAggQgQSECCQgQBIQIJCBBIQIAkIEEhAgkIAQSECCQgQSEcEgEpgHSxoowNLlcFc3rLDKLQFhCNhAsKwodIoAdJwgwbCUQQDY0QDIBANjTRBTTNEEA2MAgEEEc0AAAAAnGgCHAIBBBBBBBFEgEEEEEAggGgU40CnGgUwjQKcaBTjQKcgE9EggkEEg50Xui94yDKjJD1AJBO8YIMkbxgkEEESwuiQQQSCCMwBqYJBIJBBBBIEEEEZppgEEISA00QCnGgQTjQARQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMEEEEEEHAAA=")
 format = 3
+
+[sub_resource type="Animation" id="Animation_d1ilt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-138, -516)]
+}
+
+[sub_resource type="Animation" id="Animation_6iyac"]
+resource_name = "scale"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.49, 0.93333334),
+"transitions": PackedFloat32Array(0.5176325, 0.65975416, 9.513656),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.49, 0.93333334),
+"transitions": PackedFloat32Array(0.5176325, 0.65975416, 9.513656),
+"update": 0,
+"values": [Vector2(-138, -516), Vector2(-163, -529), Vector2(-138, -516)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdnlq"]
+_data = {
+&"RESET": SubResource("Animation_d1ilt"),
+&"scale": SubResource("Animation_6iyac")
+}
 
 [node name="Main" type="Node2D" unique_id=1040881665]
 script = ExtResource("1_jjvhh")
@@ -244,7 +305,7 @@ offset_right = 40.0
 offset_bottom = 87.0
 script = ExtResource("7_6bp64")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1829487053]
+[node name="ColorApplication" type="ColorRect" parent="CanvasLayer" unique_id=1829487053]
 material = SubResource("ShaderMaterial_kry3j")
 anchors_preset = 15
 anchor_right = 1.0
@@ -308,6 +369,11 @@ theme_override_fonts/font = ExtResource("8_6iyac")
 theme_override_font_sizes/font_size = 70
 text = "0"
 horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyNumber" unique_id=516607161]
+libraries/ = SubResource("AnimationLibrary_fdnlq")
+autoplay = &"scale"
+speed_scale = 0.4
 
 [node name="Death" type="Timer" parent="." unique_id=1969028071]
 wait_time = 2.0

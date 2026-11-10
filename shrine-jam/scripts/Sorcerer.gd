@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 func _physics_process(delta: float) -> void:
+	z_index = global_position.y
 	position += movementDir*speed*Engine.time_scale
 	var distance = pow(pow(global_position.x,2)+pow(global_position.y,2),0.5)
 	var radius = get_tree().current_scene.shrineRadius * 13000

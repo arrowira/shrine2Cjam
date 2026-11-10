@@ -124,6 +124,8 @@ func _on_death_timeout() -> void:
 
 func heal():
 	$CanvasLayer/HeartContainer.heal()
+func addHeart():
+	$CanvasLayer/HeartContainer.addHeart()
 
 
 func _on_play_pressed() -> void:

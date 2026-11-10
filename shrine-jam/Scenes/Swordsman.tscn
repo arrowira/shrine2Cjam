@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2qi1rl46rkna" path="res://Sprites/swordsman_skelly.webp" id="2_31fyo"]
 [ext_resource type="Texture2D" uid="uid://bwwgmwhfccrma" path="res://Sprites/small_enemy_shadow-export.png" id="3_1ftgk"]
 [ext_resource type="PackedScene" uid="uid://cm00e1kpgmvrp" path="res://Scenes/spawn_pillar.tscn" id="4_8qoyw"]
+[ext_resource type="Texture2D" uid="uid://bia7vfmhqf0px" path="res://Sprites/exclaimationmark.webp" id="5_1ftgk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]
 size = Vector2(98, 129)
@@ -92,6 +93,59 @@ _data = {
 &"walk": SubResource("Animation_wqyki")
 }
 
+[sub_resource type="Animation" id="Animation_3elbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ay1iq"]
+resource_name = "exclaim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 2]
+}
+
+[sub_resource type="Animation" id="Animation_xoycn"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wqyki"]
+_data = {
+&"RESET": SubResource("Animation_3elbs"),
+&"exclaim": SubResource("Animation_ay1iq"),
+&"idle": SubResource("Animation_xoycn")
+}
+
 [node name="Swordsman" type="CharacterBody2D" unique_id=952265716]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_31fyo")
@@ -171,6 +225,16 @@ libraries/ = SubResource("AnimationLibrary_njcxw")
 [node name="SpawnPillar" parent="." unique_id=443295182 instance=ExtResource("4_8qoyw")]
 position = Vector2(11.249999, 21.249998)
 scale = Vector2(1.3, 1)
+
+[node name="Exclaim" type="Sprite2D" parent="." unique_id=1580188708]
+texture_filter = 1
+position = Vector2(-84.99999, -116.24999)
+scale = Vector2(4, 4)
+texture = ExtResource("5_1ftgk")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Exclaim" unique_id=761399226]
+libraries/ = SubResource("AnimationLibrary_wqyki")
 
 [connection signal="timeout" from="MoodClock" to="." method="_on_mood_clock_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

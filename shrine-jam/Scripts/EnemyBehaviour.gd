@@ -130,6 +130,7 @@ func _on_mood_clock_timeout() -> void:
 					
 					$AnimationPlayer.play("attack")
 					$PreattackTimer.start()
+					$Exclaim/AnimationPlayer.play("exclaim")
 					movementDir = -playerDir
 				elif state == "pursue":
 					state = "pounce"
@@ -209,6 +210,7 @@ func _on_hit_timer_timeout() -> void:
 
 func _on_preattack_timer_timeout() -> void:
 	state = "attacking"
+	$Exclaim/AnimationPlayer.play("idle")
 	$AttackTimer.start()
 	movementDir=playerDir
 

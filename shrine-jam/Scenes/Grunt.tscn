@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bsrynimdx55to" path="res://Sprites/Zombie_spritesheet.png" id="2_jpaow"]
 [ext_resource type="Texture2D" uid="uid://bwwgmwhfccrma" path="res://Sprites/small_enemy_shadow-export.png" id="3_lfdme"]
 [ext_resource type="PackedScene" uid="uid://cm00e1kpgmvrp" path="res://Scenes/spawn_pillar.tscn" id="4_nwxbd"]
+[ext_resource type="Texture2D" uid="uid://bia7vfmhqf0px" path="res://Sprites/exclaimationmark.webp" id="5_tj05f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjj3t"]
 size = Vector2(98, 129)
@@ -77,6 +78,59 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3uy8"]
 radius = 65.03076
+
+[sub_resource type="Animation" id="Animation_3elbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ay1iq"]
+resource_name = "exclaim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 2]
+}
+
+[sub_resource type="Animation" id="Animation_xoycn"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3dj7"]
+_data = {
+&"RESET": SubResource("Animation_3elbs"),
+&"exclaim": SubResource("Animation_ay1iq"),
+&"idle": SubResource("Animation_xoycn")
+}
 
 [node name="Grunt" type="CharacterBody2D" unique_id=952265716]
 scale = Vector2(0.8, 0.8)
@@ -155,11 +209,22 @@ scale = Vector2(5, 5)
 texture = ExtResource("3_lfdme")
 
 [node name="SpawnPillar" parent="." unique_id=443295182 instance=ExtResource("4_nwxbd")]
+visible = false
 position = Vector2(0, 3.7499995)
 
 [node name="HitCD" type="Timer" parent="." unique_id=835700303]
 wait_time = 0.1
 one_shot = true
+
+[node name="Exclaim" type="Sprite2D" parent="." unique_id=1039767909]
+texture_filter = 1
+position = Vector2(-84.99999, -116.24999)
+scale = Vector2(4, 4)
+texture = ExtResource("5_tj05f")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Exclaim" unique_id=1689402453]
+libraries/ = SubResource("AnimationLibrary_h3dj7")
 
 [connection signal="timeout" from="MoodClock" to="." method="_on_mood_clock_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

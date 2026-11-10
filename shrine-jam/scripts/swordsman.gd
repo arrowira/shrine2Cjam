@@ -171,11 +171,11 @@ func swordHit():
 	movementDir = -playerDir
 	preHitState = state
 	if state == "parried":
-		damage = 50
-		kbStrength = 5
+		damage = 50 * get_tree().current_scene.hitMultiplier
+		kbStrength = 5 * get_tree().current_scene.kbMultiplier
 	else:
-		damage = 10
-		kbStrength = 5
+		damage = 10 * get_tree().current_scene.hitMultiplier
+		kbStrength = 5 * get_tree().current_scene.kbMultiplier
 	health-=damage
 	state = "hit"
 	speed = kbStrength * 3

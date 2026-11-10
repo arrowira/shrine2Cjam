@@ -61,8 +61,8 @@ func swordHit():
 	var D = global_position - get_parent().get_node("Player").global_position
 	b.global_rotation = D.angle() 
 	b.emitting = true
-	health -= 30
-	velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2+get_tree().current_scene.playerSpeed)
+	health -= 30*get_tree().current_scene.hitMultiplier
+	velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2+get_tree().current_scene.playerSpeed) * get_tree().current_scene.kbMultiplier
 	
 var inSword = false
 
@@ -74,7 +74,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			
 			
 	if (area.name == "ProjectileHurtBox" and area.get_parent().parried):
-		health -= 40
+		health -= 50
 		velocity = (global_position-get_tree().current_scene.playerPos).normalized() * 500*(2)
 
 func healthbar_changed(value : float) -> void:

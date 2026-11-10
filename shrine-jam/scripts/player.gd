@@ -43,10 +43,10 @@ func _physics_process(delta: float) -> void:
 		
 	
 	if isDashing:
-		velocity += dashDir*dashSpeed
+		velocity += dashDir*dashSpeed * get_tree().current_scene.speedMultiplier
 		velocity *= 0.8
 	else:
-		velocity += input * speed
+		velocity += input * speed * get_tree().current_scene.speedMultiplier
 		velocity *= 0.8
 	
 	if Input.is_action_just_pressed("attack") and ($SwordPivot/ReturnTimer.time_left < 0.1 or $SwordPivot.returning == false) and $SwordPivot.attack!=3 and $SwingTimer.time_left==0:

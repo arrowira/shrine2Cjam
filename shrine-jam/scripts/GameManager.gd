@@ -19,6 +19,7 @@ var parryHitMultiplier = 1
 var heartChance = 0
 var kbMultiplier = 1
 var speedMultiplier = 1
+var hearts = 3
 
 
 # Called when the node enters the scene tree for the first time.

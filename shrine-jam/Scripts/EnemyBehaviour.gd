@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	var distance = pow(pow(global_position.x,2)+pow(global_position.y,2),0.5)
 	var radius = get_tree().current_scene.shrineRadius * 13000
 	if distance>radius:
-		position += -(global_position).normalized()*5
+		position += -(global_position).normalized()*5*get_tree().current_scene.kbMultiplier
 	
 	position += movementDir*speed*Engine.time_scale
 	if state == "pursue":
@@ -179,11 +179,11 @@ func swordHit():
 		movementDir = -playerDir
 		preHitState = state
 		if state == "parried":
-			damage = 90
-			kbStrength = 10
+			damage = 90 * get_tree().current_scene.parryHitMultiplier
+			kbStrength = 10 * get_tree().current_scene.kbMultiplier
 		else:
-			damage = 30
-			kbStrength = 5
+			damage = 25 * get_tree().current_scene.hitMultiplier
+			kbStrength = 5 * get_tree().current_scene.kbMultiplier
 		health-=damage
 		state = "hit"
 		speed = kbStrength * 3

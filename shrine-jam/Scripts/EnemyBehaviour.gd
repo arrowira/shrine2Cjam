@@ -132,6 +132,10 @@ func _on_mood_clock_timeout() -> void:
 					$AnimationPlayer.play("attack")
 					$PreattackTimer.start()
 					movementDir = -playerDir
+				elif state == "pursue":
+					state = "pounce"
+					canDamage = true
+					speed = 2
 	
 
 

@@ -3,7 +3,7 @@ extends ColorRect
 
 
 func _ready() -> void:
-	change_radius(0.1)
+	change_radius(0.03)
 
 
 @onready var mat: ShaderMaterial = material

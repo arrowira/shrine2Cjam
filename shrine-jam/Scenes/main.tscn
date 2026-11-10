@@ -6,9 +6,11 @@
 [ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="3_344ge"]
 [ext_resource type="PackedScene" uid="uid://c52p3eho210at" path="res://Scenes/shrine.tscn" id="5_kry3j"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://c06sp83ftw61u" path="res://scripts/tutorial.gd" id="6_d1ilt"]
 [ext_resource type="Script" uid="uid://bpn586u6aqxm5" path="res://scripts/HeartManager.gd" id="7_6bp64"]
+[ext_resource type="FontFile" uid="uid://bbmp7am434p0h" path="res://Daydream DEMO.otf" id="8_6iyac"]
 [ext_resource type="AudioStream" uid="uid://b1xbi084x1wo0" path="res://Sounds/EnemyHurt.wav" id="10_hptm8"]
-[ext_resource type="FontFile" uid="uid://bbmp7am434p0h" path="res://Daydream DEMO.otf" id="11_d1ilt"]
+[ext_resource type="FontFile" uid="uid://26y8ayijusb5" path="res://PixelOperator.ttf" id="11_d1ilt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k3uy8"]
 shader = ExtResource("2_6bp64")
@@ -51,6 +53,134 @@ position = Vector2(-4, 25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752143104]
 
+[node name="Tutorials" type="Control" parent="CanvasLayer" unique_id=476498515]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="tut1" type="Control" parent="CanvasLayer/Tutorials" unique_id=1841184227]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_d1ilt")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Tutorials/tut1" unique_id=1863334406]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 131.0
+offset_right = 984.0
+offset_bottom = 751.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Tutorials/tut1" unique_id=1225430594]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 142.0
+offset_right = 971.0
+offset_bottom = 741.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Tutorials/tut1" unique_id=1511943895]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 596.0
+offset_right = 981.0
+offset_bottom = 607.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Tutorials/tut1" unique_id=615120258]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 134.0
+offset_right = 984.0
+offset_bottom = 609.0
+theme_override_fonts/normal_font = ExtResource("11_d1ilt")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "
+WASD to move.
+
+E or left click to attack.
+
+Defeat all enemies 
+to progress."
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/Tutorials/tut1" unique_id=868391871]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 622.0
+offset_right = 729.0
+offset_bottom = 726.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_6iyac")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynf5e")
+text = "Got it"
+
+[node name="tut2" type="Control" parent="CanvasLayer/Tutorials" unique_id=1855384295]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_d1ilt")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Tutorials/tut2" unique_id=1126250930]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 131.0
+offset_right = 984.0
+offset_bottom = 751.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Tutorials/tut2" unique_id=960783864]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 142.0
+offset_right = 971.0
+offset_bottom = 741.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Tutorials/tut2" unique_id=1885961599]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 596.0
+offset_right = 981.0
+offset_bottom = 607.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Tutorials/tut2" unique_id=1646765890]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 150.0
+offset_right = 984.0
+offset_bottom = 625.0
+theme_override_fonts/normal_font = ExtResource("11_d1ilt")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Archers shoot arrows.
+
+You can parry with
+Q or right click.
+
+Every attack is 
+parriable"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/Tutorials/tut2" unique_id=555872364]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 622.0
+offset_right = 729.0
+offset_bottom = 726.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_6iyac")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynf5e")
+text = "Got it"
+
 [node name="DeathMenu" type="Control" parent="CanvasLayer" unique_id=1447108774]
 visible = false
 layout_mode = 3
@@ -86,7 +216,7 @@ offset_left = 376.0
 offset_top = 209.0
 offset_right = 1228.0
 offset_bottom = 444.0
-theme_override_fonts/normal_font = ExtResource("11_d1ilt")
+theme_override_fonts/normal_font = ExtResource("8_6iyac")
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
 text = "[wave]YOU DIED"
@@ -101,7 +231,7 @@ offset_bottom = 719.0
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_d1ilt")
+theme_override_fonts/font = ExtResource("8_6iyac")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_ynf5e")
 text = "RETURN"
@@ -136,7 +266,7 @@ layout_mode = 0
 offset_left = 11.0
 offset_right = 169.0
 offset_bottom = 76.0
-theme_override_fonts/normal_font = ExtResource("11_d1ilt")
+theme_override_fonts/normal_font = ExtResource("8_6iyac")
 theme_override_font_sizes/normal_font_size = 30
 text = "WAVE
 "
@@ -147,7 +277,7 @@ offset_left = 162.0
 offset_top = 2.0
 offset_right = 320.0
 offset_bottom = 78.0
-theme_override_fonts/normal_font = ExtResource("11_d1ilt")
+theme_override_fonts/normal_font = ExtResource("8_6iyac")
 theme_override_font_sizes/normal_font_size = 30
 text = "0
 "
@@ -174,7 +304,16 @@ offset_left = -138.0
 offset_top = -516.0
 offset_right = 134.0
 offset_bottom = -397.0
-theme_override_fonts/font = ExtResource("11_d1ilt")
+theme_override_fonts/font = ExtResource("8_6iyac")
 theme_override_font_sizes/font_size = 70
 text = "0"
 horizontal_alignment = 1
+
+[node name="Death" type="Timer" parent="." unique_id=1969028071]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/Tutorials/tut1/Play" to="CanvasLayer/Tutorials/tut1" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Tutorials/tut2/Play" to="CanvasLayer/Tutorials/tut2" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/DeathMenu/Play" to="." method="_on_play_pressed"]
+[connection signal="timeout" from="Death" to="." method="_on_death_timeout"]

@@ -17,6 +17,9 @@ func _ready() -> void:
 	buildWave(waveEnemyAmt)
 	for i in range(3):
 		$CanvasLayer/HeartContainer.addHeart()
+	
+	if Music.firstGame:
+		$CanvasLayer/Tutorials/tut1.visible = true
 
 var playerPos = Vector2(0,0)
 var playerSpeed = 0
@@ -47,13 +50,15 @@ func enemyKilled():
 		print(spawnFrequencies)
 		
 func game_over():
+	Music.firstGame=false
 	$Player.die()
+	$Death.start()
 	
 func raiseFrequencies():
 	if spawnFrequencies[0]>=0:
-		if randf()<0.5:
+		if randf()<0.7:
 			var amt = spawnFrequencies[0]*randf_range(0,0.1)
-			if randf()<0.75:
+			if randf()<0.55:
 				spawnFrequencies[1] += amt
 			else:
 				spawnFrequencies[2] += amt
@@ -89,3 +94,14 @@ func spawnEnemy(type):
 	add_child(enemy)
 	
 	
+
+
+func _on_death_timeout() -> void:
+	$CanvasLayer/DeathMenu.visible = true
+
+
+
+
+func _on_play_pressed() -> void:
+	Engine.time_scale = 1
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")

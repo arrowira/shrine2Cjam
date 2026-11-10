@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bk7jadcceam5" path="res://control.gd" id="1_28flt"]
 [ext_resource type="FontFile" uid="uid://bbmp7am434p0h" path="res://Daydream DEMO.otf" id="2_1ehe0"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="3_ce3w2"]
+[ext_resource type="Shader" uid="uid://btwgxlt0404ch" path="res://shrine_border.gdshader" id="4_n45e2"]
+[ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="5_opfnp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3uy8"]
 bg_color = Color(0, 0, 0, 1)
@@ -12,6 +14,10 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(1, 1, 1, 1)
 corner_detail = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cp0ys"]
+shader = ExtResource("4_n45e2")
+shader_parameter/radius = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n45e2"]
 shader = ExtResource("3_ce3w2")
@@ -119,6 +125,17 @@ position = Vector2(2539, 463)
 
 [node name="HTPPos" type="Node2D" parent="." unique_id=160225650]
 position = Vector2(744, 1541)
+
+[node name="ShrineBorder" type="ColorRect" parent="." unique_id=262163884]
+z_index = -1
+material = SubResource("ShaderMaterial_cp0ys")
+layout_mode = 0
+offset_left = -6376.0
+offset_top = -6769.0
+offset_right = 7852.0
+offset_bottom = 7623.0
+mouse_filter = 2
+script = ExtResource("5_opfnp")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1344625558]
 material = SubResource("ShaderMaterial_n45e2")

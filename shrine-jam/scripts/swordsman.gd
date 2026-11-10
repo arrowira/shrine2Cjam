@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var Blood = preload("res://Scenes/Blood.tscn")
+
 var state = "idle"
 var playerPos
 var playerDist
@@ -158,6 +160,14 @@ func _on_parried_timer_timeout() -> void:
 func swordHit():
 	var damage
 	var kbStrength
+	var b = Blood.instantiate()
+	get_tree().current_scene.get_node("SFX/EnemyHit").stop()
+	get_tree().current_scene.get_node("SFX/EnemyHit").play()
+	add_child(b)
+	b.global_position = global_position
+	var D = global_position - get_parent().get_node("Player").global_position
+	b.global_rotation = D.angle() 
+	b.emitting = true
 	get_tree().current_scene.get_node("SFX/EnemyHit").stop()
 	get_tree().current_scene.get_node("SFX/EnemyHit").play()
 	movementDir = -playerDir

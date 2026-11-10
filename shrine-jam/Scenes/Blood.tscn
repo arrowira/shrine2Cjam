@@ -20,7 +20,7 @@ scale_curve = SubResource("CurveTexture_jl4bd")
 [node name="Blood" type="GPUParticles2D" unique_id=691926786]
 position = Vector2(-1, 1)
 emitting = false
-amount = 20
+amount = 10
 lifetime = 0.7
 one_shot = true
 speed_scale = 2.0

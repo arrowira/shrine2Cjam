@@ -43,7 +43,7 @@ func enemyKilled():
 		wave += 1
 		$CanvasLayer/panel/WaveNum.text = str(wave)
 		shrineRadius += 0.005
-		waveEnemyAmt +=1
+		waveEnemyAmt = 1 + int((wave+2)/3)
 		currentEnemies = waveEnemyAmt
 		buildWave(waveEnemyAmt)
 		raiseFrequencies()
@@ -66,6 +66,13 @@ func raiseFrequencies():
 			
 
 func buildWave(num):
+	if wave == 2 and Music.firstGame:
+		spawnEnemy("archer")
+		$CanvasLayer/Tutorials/tut2.visible=true
+	if wave == 4 and Music.firstGame:
+		spawnEnemy("skelly")
+	
+	
 	for i in range(num):
 		await get_tree().create_timer(0.1).timeout
 		

@@ -130,31 +130,31 @@ script = ExtResource("6_d1ilt")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Tutorials/tut1" unique_id=1863334406]
 layout_mode = 0
-offset_left = 375.0
+offset_left = 483.0
 offset_top = 131.0
-offset_right = 984.0
+offset_right = 1092.0
 offset_bottom = 751.0
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Tutorials/tut1" unique_id=1225430594]
 layout_mode = 0
-offset_left = 386.0
+offset_left = 494.0
 offset_top = 142.0
-offset_right = 971.0
+offset_right = 1079.0
 offset_bottom = 741.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Tutorials/tut1" unique_id=1511943895]
 layout_mode = 0
-offset_left = 375.0
+offset_left = 483.0
 offset_top = 596.0
-offset_right = 981.0
+offset_right = 1089.0
 offset_bottom = 607.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Tutorials/tut1" unique_id=615120258]
 layout_mode = 0
-offset_left = 377.0
+offset_left = 485.0
 offset_top = 134.0
-offset_right = 984.0
+offset_right = 1092.0
 offset_bottom = 609.0
 theme_override_fonts/normal_font = ExtResource("11_d1ilt")
 theme_override_font_sizes/normal_font_size = 60
@@ -170,9 +170,9 @@ horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="CanvasLayer/Tutorials/tut1" unique_id=868391871]
 layout_mode = 0
-offset_left = 402.0
+offset_left = 510.0
 offset_top = 622.0
-offset_right = 729.0
+offset_right = 879.0
 offset_bottom = 726.0
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -191,32 +191,32 @@ script = ExtResource("6_d1ilt")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Tutorials/tut2" unique_id=1126250930]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 131.0
-offset_right = 984.0
-offset_bottom = 751.0
+offset_left = 467.0
+offset_top = 136.0
+offset_right = 1076.0
+offset_bottom = 756.0
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Tutorials/tut2" unique_id=960783864]
 layout_mode = 0
-offset_left = 386.0
-offset_top = 142.0
-offset_right = 971.0
-offset_bottom = 741.0
+offset_left = 478.0
+offset_top = 147.0
+offset_right = 1063.0
+offset_bottom = 746.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Tutorials/tut2" unique_id=1885961599]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 596.0
-offset_right = 981.0
-offset_bottom = 607.0
+offset_left = 467.0
+offset_top = 601.0
+offset_right = 1073.0
+offset_bottom = 612.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Tutorials/tut2" unique_id=1646765890]
 layout_mode = 0
-offset_left = 377.0
-offset_top = 150.0
-offset_right = 984.0
-offset_bottom = 625.0
+offset_left = 469.0
+offset_top = 155.0
+offset_right = 1076.0
+offset_bottom = 630.0
 theme_override_fonts/normal_font = ExtResource("11_d1ilt")
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
@@ -231,10 +231,10 @@ horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="CanvasLayer/Tutorials/tut2" unique_id=555872364]
 layout_mode = 0
-offset_left = 402.0
-offset_top = 622.0
-offset_right = 729.0
-offset_bottom = 726.0
+offset_left = 494.0
+offset_top = 627.0
+offset_right = 843.0
+offset_bottom = 731.0
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)

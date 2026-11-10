@@ -18,6 +18,7 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 Dynamics="*uid://bqef7ivksw07a"
+Music="*uid://p7bjk313qbne"
 
 [display]
 

@@ -209,7 +209,6 @@ scale = Vector2(5, 5)
 texture = ExtResource("3_lfdme")
 
 [node name="SpawnPillar" parent="." unique_id=443295182 instance=ExtResource("4_nwxbd")]
-visible = false
 position = Vector2(0, 3.7499995)
 
 [node name="HitCD" type="Timer" parent="." unique_id=835700303]

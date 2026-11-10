@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://bk7jadcceam5" path="res://control.gd" id="1_28flt"]
 [ext_resource type="FontFile" uid="uid://bbmp7am434p0h" path="res://Daydream DEMO.otf" id="2_1ehe0"]
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="3_ce3w2"]
+[ext_resource type="FontFile" uid="uid://26y8ayijusb5" path="res://PixelOperator.ttf" id="3_yhxw7"]
 [ext_resource type="Shader" uid="uid://btwgxlt0404ch" path="res://shrine_border.gdshader" id="4_n45e2"]
-[ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="5_opfnp"]
+[ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://Scripts/shrine_border.gd" id="5_opfnp"]
+[ext_resource type="Script" uid="uid://ccxaus488mnit" path="res://Scenes/VolumeControl.gd" id="6_cp0ys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3uy8"]
 bg_color = Color(0, 0, 0, 1)
@@ -71,19 +73,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
 text = "Settings
 "
 
-[node name="back" type="Button" parent="MainButtons" unique_id=1282290003]
-layout_mode = 0
-offset_left = 1148.0
-offset_top = -373.0
-offset_right = 1237.0
-offset_bottom = -293.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_1ehe0")
-theme_override_font_sizes/font_size = 45
-theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
-text = "<--"
-
 [node name="back2" type="Button" parent="MainButtons" unique_id=656341696]
 layout_mode = 0
 offset_left = -672.0
@@ -123,21 +112,93 @@ offset_bottom = 7623.0
 mouse_filter = 2
 script = ExtResource("5_opfnp")
 
+[node name="Control" type="Control" parent="." unique_id=1478621067]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=1688189772]
+layout_mode = 0
+offset_left = 1842.0
+offset_top = 86.0
+offset_right = 3257.0
+offset_bottom = 873.0
+
+[node name="ColorRect3" type="ColorRect" parent="Control" unique_id=1858323496]
+layout_mode = 0
+offset_left = 1853.0
+offset_top = 99.0
+offset_right = 3245.0
+offset_bottom = 857.0
+color = Color(0, 0, 0, 1)
+
+[node name="MainText" type="RichTextLabel" parent="Control" unique_id=161087147]
+layout_mode = 0
+offset_left = 2208.0
+offset_top = 98.0
+offset_right = 2950.0
+offset_bottom = 435.0
+theme_override_fonts/normal_font = ExtResource("2_1ehe0")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Settings
+
+"
+horizontal_alignment = 1
+
+[node name="Volume" type="RichTextLabel" parent="Control" unique_id=636437390]
+layout_mode = 0
+offset_left = 1681.0
+offset_top = 277.0
+offset_right = 2423.0
+offset_bottom = 614.0
+theme_override_fonts/normal_font = ExtResource("3_yhxw7")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "Volume
+
+"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Control" unique_id=2061763657]
+layout_mode = 0
+offset_left = 1909.0
+offset_top = 373.0
+offset_right = 2204.0
+offset_bottom = 430.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("6_cp0ys")
+
+[node name="back" type="Button" parent="Control" unique_id=1282290003]
+layout_mode = 0
+offset_left = 1887.0
+offset_top = 118.0
+offset_right = 1976.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
+text = "<--"
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1344625558]
 material = SubResource("ShaderMaterial_n45e2")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -777.0
-offset_top = -345.0
-offset_right = 3601.0
-offset_bottom = 1678.0
+offset_left = -597.0
+offset_top = -353.0
+offset_right = 3781.0
+offset_bottom = 1670.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [connection signal="pressed" from="MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainButtons/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MainButtons/back" to="." method="_on_back_2_pressed"]
 [connection signal="pressed" from="MainButtons/back2" to="." method="_on_back_2_pressed"]
+[connection signal="pressed" from="Control/back" to="." method="_on_back_2_pressed"]

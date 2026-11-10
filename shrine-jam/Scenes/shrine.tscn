@@ -79,7 +79,7 @@ speed_scale = 0.3
 movie_quit_on_finish = true
 
 [node name="ShrineShadow" type="Sprite2D" parent="." unique_id=776537620]
-z_index = -100
+z_index = -300
 texture_filter = 1
 position = Vector2(-107, -82)
 scale = Vector2(4, 4)

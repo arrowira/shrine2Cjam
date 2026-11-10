@@ -14,6 +14,15 @@
 shader = ExtResource("2_6bp64")
 shader_parameter/radius = 0.1
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynf5e"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kry3j"]
 shader = ExtResource("6_21xkr")
 shader_parameter/darkColor = Color(0.27622634, 0.1688197, 0.23947811, 1)
@@ -42,6 +51,60 @@ position = Vector2(-4, 25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752143104]
 
+[node name="DeathMenu" type="Control" parent="CanvasLayer" unique_id=1447108774]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DeathMenu" unique_id=1905771670]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 131.0
+offset_right = 1230.0
+offset_bottom = 751.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/DeathMenu" unique_id=1321501642]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 142.0
+offset_right = 1218.0
+offset_bottom = 741.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/DeathMenu" unique_id=1715993155]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 437.0
+offset_right = 1230.0
+offset_bottom = 448.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/DeathMenu" unique_id=55559476]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 209.0
+offset_right = 1228.0
+offset_bottom = 444.0
+theme_override_fonts/normal_font = ExtResource("11_d1ilt")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave]YOU DIED"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/DeathMenu" unique_id=1412951105]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 463.0
+offset_right = 1182.0
+offset_bottom = 719.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_d1ilt")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynf5e")
+text = "RETURN"
+
 [node name="HeartContainer" type="Control" parent="CanvasLayer" unique_id=788841365]
 layout_mode = 3
 anchors_preset = 0
@@ -55,8 +118,11 @@ material = SubResource("ShaderMaterial_kry3j")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -34.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="panel" type="ColorRect" parent="CanvasLayer" unique_id=245014206]
 z_index = -1

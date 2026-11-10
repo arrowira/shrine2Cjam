@@ -58,8 +58,6 @@ func _physics_process(delta: float) -> void:
 	var radius = get_tree().current_scene.shrineRadius * 13000
 	if distance>radius:
 		position += -(global_position).normalized()*500
-	
-	$Label.text = state
 	position += movementDir*speed*Engine.time_scale
 	if state == "pursue":
 		movementDir = playerDir

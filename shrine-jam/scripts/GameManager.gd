@@ -35,6 +35,7 @@ func takeDamage():
 	$CanvasLayer/HeartContainer.takeDamage()
 
 func enemyKilled():
+	$SFX/absorbed.play()
 	currentEnemies -=1
 	$EnemyNumber.text = str(currentEnemies)
 	if currentEnemies == 0:
@@ -68,9 +69,14 @@ func raiseFrequencies():
 func buildWave(num):
 	if wave == 2 and Music.firstGame:
 		spawnEnemy("archer")
+		$EnemyNumber.text = str(int($EnemyNumber.text) + 1)
+		currentEnemies+=1
+		
 		$CanvasLayer/Tutorials/tut2.visible=true
 	if wave == 4 and Music.firstGame:
 		spawnEnemy("skelly")
+		$EnemyNumber.text = str(int($EnemyNumber.text) + 1)
+		currentEnemies+=1
 	
 	
 	for i in range(num):

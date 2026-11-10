@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://6fbg42iuwur5" path="res://scripts/ghost.gd" id="1_rm6hp"]
 [ext_resource type="Texture2D" uid="uid://bsrynimdx55to" path="res://Sprites/Zombie_spritesheet.png" id="2_rm6hp"]
+[ext_resource type="AudioStream" uid="uid://diktwk0we60e1" path="res://Sounds/ghostSFX.mp3" id="3_x10qx"]
+[ext_resource type="AudioStream" uid="uid://b1xbi084x1wo0" path="res://Sounds/EnemyHurt.wav" id="4_c86lt"]
 
 [node name="GruntGhost" type="Node2D" unique_id=1534764734]
 z_index = -600
@@ -19,3 +21,12 @@ scale = Vector2(7, 7)
 texture = ExtResource("2_rm6hp")
 hframes = 10
 vframes = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2107883053]
+stream = ExtResource("3_x10qx")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1292789220]
+stream = ExtResource("4_c86lt")
+volume_db = 10.0
+autoplay = true

@@ -113,13 +113,6 @@ speed_scale = 0.8
 wait_time = 0.6
 one_shot = true
 
-[node name="Label" type="Label" parent="." unique_id=741633984]
-offset_left = -56.0
-offset_top = -97.0
-offset_right = -16.0
-offset_bottom = -74.0
-theme_override_font_sizes/font_size = 25
-
 [node name="GruntHurtBox" type="Area2D" parent="." unique_id=1570542706]
 
 [node name="collider" type="CollisionShape2D" parent="GruntHurtBox" unique_id=241678350]

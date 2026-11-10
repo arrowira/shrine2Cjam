@@ -10,6 +10,7 @@ var health = 0
 func addHeart():
 	var heart
 	heart=pHeart.instantiate()
+	heart.disable()
 	heart.position = Vector2(len(hearts)*40 + 40, 21)
 	hearts.append(heart)
 	heal()

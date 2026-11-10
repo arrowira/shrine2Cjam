@@ -37,6 +37,7 @@ var playerSpeed = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	spacialRadius = shrineRadius * 13000
 	$ShrineBorder.change_radius(shrineRadius)
 	playerSpeed = $Player.velocity.length()/400
@@ -95,6 +96,8 @@ func buildWave(num):
 		spawnEnemy("skelly")
 		$EnemyNumber.text = str(int($EnemyNumber.text) + 1)
 		currentEnemies+=1
+	if wave == 1 and Music.firstGame:
+		$CanvasLayer/Tutorials/tut3.visible=true
 	
 	
 	for i in range(num):

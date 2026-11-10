@@ -370,6 +370,66 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_ynf5e")
 text = "Got it"
 
+[node name="tut3" type="Control" parent="CanvasLayer/Tutorials" unique_id=1047235367]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_d1ilt")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Tutorials/tut3" unique_id=2036432597]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 136.0
+offset_right = 1076.0
+offset_bottom = 756.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Tutorials/tut3" unique_id=1873046726]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 147.0
+offset_right = 1063.0
+offset_bottom = 746.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Tutorials/tut3" unique_id=2069005557]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 601.0
+offset_right = 1073.0
+offset_bottom = 612.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Tutorials/tut3" unique_id=1885684557]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 128.0
+offset_right = 1076.0
+offset_bottom = 603.0
+theme_override_fonts/normal_font = ExtResource("11_d1ilt")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "
+Check the top left for useful information
+
+Don't run out of hearts
+
+get upgrades"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/Tutorials/tut3" unique_id=1073062932]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 627.0
+offset_right = 843.0
+offset_bottom = 731.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_6iyac")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynf5e")
+text = "Got it"
+
 [node name="DeathMenu" type="Control" parent="CanvasLayer" unique_id=1447108774]
 visible = false
 layout_mode = 3
@@ -549,5 +609,6 @@ position = Vector2(4279, 4556)
 [connection signal="mouse_exited" from="CanvasLayer/Upgrades/Card2/ColorRect" to="CanvasLayer/Upgrades/Card2" method="_on_color_rect_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Tutorials/tut1/Play" to="CanvasLayer/Tutorials/tut1" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Tutorials/tut2/Play" to="CanvasLayer/Tutorials/tut2" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Tutorials/tut3/Play" to="CanvasLayer/Tutorials/tut3" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/DeathMenu/Play" to="." method="_on_play_pressed"]
 [connection signal="timeout" from="Death" to="." method="_on_death_timeout"]

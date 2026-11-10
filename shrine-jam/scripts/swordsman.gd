@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	var distance = pow(pow(global_position.x,2)+pow(global_position.y,2),0.5)
 	var radius = get_tree().current_scene.shrineRadius * 13000
 	if distance>radius:
-		position += -(global_position).normalized()*500
+		position += -(global_position).normalized()*5
 	position += movementDir*speed*Engine.time_scale
 	if state == "pursue":
 		movementDir = playerDir

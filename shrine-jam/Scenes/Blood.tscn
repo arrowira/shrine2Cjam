@@ -13,16 +13,15 @@ spread = 30.0
 initial_velocity_min = 150.0
 initial_velocity_max = 300.0
 gravity = Vector3(0, 0, 0)
-scale_min = 17.0
-scale_max = 17.0
+scale_min = 25.0
+scale_max = 25.0
 scale_curve = SubResource("CurveTexture_jl4bd")
 
 [node name="Blood" type="GPUParticles2D" unique_id=691926786]
 position = Vector2(-1, 1)
 emitting = false
-amount = 10
-lifetime = 0.7
+amount = 4
 one_shot = true
-speed_scale = 2.0
+speed_scale = 3.0
 explosiveness = 0.6
 process_material = SubResource("ParticleProcessMaterial_738o6")

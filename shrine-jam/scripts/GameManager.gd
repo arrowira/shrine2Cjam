@@ -12,6 +12,15 @@ var waveEnemyAmt = 1
 var currentEnemies = 1
 var spawnFrequencies = [1,0,0] #grunts, archers, skellies
 
+
+#upgrade vars 
+var hitMultiplier = 1
+var parryHitMultiplier = 1
+var heartChance = 0
+var kbMultiplier = 1
+var speedMultiplier = 1
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	buildWave(waveEnemyAmt)

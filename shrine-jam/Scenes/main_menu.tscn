@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://d4nfsp1lxa2e8" path="res://colorapplication.gdshader" id="3_ce3w2"]
 [ext_resource type="FontFile" uid="uid://26y8ayijusb5" path="res://PixelOperator.ttf" id="3_yhxw7"]
 [ext_resource type="Shader" uid="uid://btwgxlt0404ch" path="res://shrine_border.gdshader" id="4_n45e2"]
-[ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://Scripts/shrine_border.gd" id="5_opfnp"]
+[ext_resource type="Script" uid="uid://cjw3vbayvst71" path="res://scripts/shrine_border.gd" id="5_opfnp"]
 [ext_resource type="Script" uid="uid://ccxaus488mnit" path="res://Scenes/VolumeControl.gd" id="6_cp0ys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3uy8"]
@@ -21,10 +21,10 @@ corner_detail = 1
 shader = ExtResource("4_n45e2")
 shader_parameter/radius = 0.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n45e2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhxw7"]
 shader = ExtResource("3_ce3w2")
-shader_parameter/darkColor = Color(0.27622634, 0.1688197, 0.23947811, 1)
-shader_parameter/lightColor = Color(0.5519479, 0.45576358, 0.51774293, 1)
+shader_parameter/darkColor = Color(0.24881938, 0.13552612, 0.4011485, 1)
+shader_parameter/lightColor = Color(0.5408741, 0.42956302, 0.6713791, 1)
 
 [node name="MainMenu" type="Control" unique_id=924485212]
 layout_mode = 3
@@ -184,16 +184,16 @@ theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_k3uy8")
 text = "<--"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1344625558]
-material = SubResource("ShaderMaterial_n45e2")
+[node name="ColorApplication" type="ColorRect" parent="." unique_id=2020133649]
+material = SubResource("ShaderMaterial_yhxw7")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -597.0
-offset_top = -353.0
-offset_right = 3781.0
-offset_bottom = 1670.0
+offset_left = -227.0
+offset_top = -443.0
+offset_right = 2266.0
+offset_bottom = 1493.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
